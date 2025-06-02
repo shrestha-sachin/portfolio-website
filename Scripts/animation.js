@@ -15,7 +15,7 @@ function createParticles() {
   particleContainer.style.width = '100vw';
   particleContainer.style.height = '100vh';
   particleContainer.style.pointerEvents = 'none';
-  particleContainer.style.zIndex = '0'; // Increase z-index to be above background but behind content
+  particleContainer.style.zIndex = '-1'; // Place behind content
   body.appendChild(particleContainer);
   
   for (let i = 0; i < particleCount; i++) {
@@ -24,7 +24,7 @@ function createParticles() {
     particle.classList.add('particle');
     
     // Create larger particles with higher opacity
-    const size = Math.random() * 20 + 10; // Bigger particles
+    const size = Math.random() * 15 + 5; // Slightly smaller particles
     const posX = Math.random() * window.innerWidth;
     const posY = Math.random() * window.innerHeight; // Start at random heights
     const duration = Math.random() * 20 + 15; // Longer durations
@@ -35,13 +35,13 @@ function createParticles() {
     particle.style.top = `${posY}px`;
     particle.style.position = 'absolute';
     particle.style.borderRadius = '50%';
-    particle.style.background = 'rgba(99, 102, 241, 0.6)'; // More visible color
-    particle.style.boxShadow = '0 0 20px rgba(99, 102, 241, 0.8)'; // Stronger glow
+    particle.style.background = 'rgba(99, 102, 241, 0.3)'; // Less visible color
+    particle.style.boxShadow = '0 0 10px rgba(99, 102, 241, 0.5)'; // Softer glow
     
     // Apply animation directly rather than relying on CSS class
     const keyframes = `
       @keyframes float${i} {
-        0% { transform: translate(0, 0); opacity: 0.8; }
+        0% { transform: translate(0, 0); opacity: 0.4; }
         100% { transform: translate(${Math.random() * 100 - 50}px, ${-Math.random() * 500 - 200}px); opacity: 0; }
       }
     `;
@@ -57,9 +57,6 @@ function createParticles() {
     
     particleContainer.appendChild(particle);
   }
-  
-  // Log confirmation
-  console.log("Created particles: " + particleCount);
 }
 
 // Check if the browser supports the features we need
@@ -68,7 +65,7 @@ function checkBrowserSupport() {
          typeof window.requestAnimationFrame === 'function';
 }
 
-// Create network animation with connecting dots (only on the right side of home page)
+// Create network animation with connecting dots (full page)
 function createNetworkAnimation() {
   // Only create animation on home page - check for multiple possible home section identifiers
   const homeSection = document.getElementById('home') || 
@@ -76,25 +73,25 @@ function createNetworkAnimation() {
                      document.querySelector('section:first-of-type');
   
   if (!homeSection) {
-    console.log('Network animation skipped: No home section found');
     return null;
   }
   
   // Clear any existing network containers
   document.querySelectorAll('.network-container').forEach(p => p.remove());
   
-  // Create a container for the network positioned on the right side
+  // Create a container for the network positioned on the entire home section
   const networkContainer = document.createElement('div');
   networkContainer.classList.add('network-container');
   
-  // Position the container on the right half of the home section
+  // Position the container to cover the full home section
   networkContainer.style.position = 'absolute';
   networkContainer.style.top = '0';
-  networkContainer.style.right = '0'; // Position from right instead of left
-  networkContainer.style.width = '50%'; // Take up half the width
+  networkContainer.style.left = '0'; // Position from left
+  networkContainer.style.width = '100%'; // Full width
   networkContainer.style.height = '100%';
   networkContainer.style.pointerEvents = 'none';
-  networkContainer.style.zIndex = '1';
+  networkContainer.style.zIndex = '0'; // Behind content
+  networkContainer.style.overflow = 'hidden'; // Prevent overflow
   
   // Add the container to the home section
   homeSection.style.position = 'relative'; // Ensure proper positioning
@@ -106,7 +103,9 @@ function createNetworkAnimation() {
   canvas.height = homeSection.offsetHeight;
   canvas.style.position = 'absolute';
   canvas.style.top = '0';
-  canvas.style.right = '0'; // Position from right
+  canvas.style.left = '0'; // Position from left
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
   networkContainer.appendChild(canvas);
   
   // Set up the animation on this canvas
@@ -117,12 +116,12 @@ function createNetworkAnimation() {
 }
 
 // Separate function to set up the network animation on a canvas
-function setupNetworkAnimation(canvas, container, heroImage = null) {
+function setupNetworkAnimation(canvas, container) {
   const ctx = canvas.getContext('2d');
   
-  // Particles configuration - more particles for a denser right side
-  const particleCount = 50;
-  const connectionDistance = 120;
+  // Particles configuration - fewer particles for a cleaner look
+  const particleCount = 30; // Reduced from 50
+  const connectionDistance = 100; // Slightly reduced
   const particles = [];
   
   // Create particles
@@ -130,9 +129,9 @@ function setupNetworkAnimation(canvas, container, heroImage = null) {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      size: Math.random() * 3 + 1.5, 
-      speedX: Math.random() * 0.5 - 0.25, // Slower movement for better visibility
-      speedY: Math.random() * 0.5 - 0.25
+      size: Math.random() * 2 + 1, // Smaller particles
+      speedX: Math.random() * 0.2 - 0.1, // Slower movement for better visibility
+      speedY: Math.random() * 0.2 - 0.1
     });
   }
   
@@ -155,10 +154,10 @@ function setupNetworkAnimation(canvas, container, heroImage = null) {
       if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
       if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
       
-      // Draw particle with higher opacity
+      // Draw particle with reduced opacity
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(99, 102, 241, 0.8)';
+      ctx.fillStyle = 'rgba(99, 102, 241, 0.5)'; // Lower opacity
       ctx.fill();
       
       // Connect with nearby particles
@@ -172,12 +171,12 @@ function setupNetworkAnimation(canvas, container, heroImage = null) {
           // Calculate opacity based on distance
           const lineOpacity = 1 - (distance / connectionDistance);
           
-          // Draw connecting line
+          // Draw connecting line with reduced opacity
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(99, 102, 241, ${lineOpacity * 0.5})`;
-          ctx.lineWidth = 0.8;
+          ctx.strokeStyle = `rgba(99, 102, 241, ${lineOpacity * 0.3})`; // Reduced opacity
+          ctx.lineWidth = 0.5; // Thinner lines
           ctx.stroke();
         }
       }
@@ -188,14 +187,12 @@ function setupNetworkAnimation(canvas, container, heroImage = null) {
   
   // Start animation
   animate();
-  console.log("Network animation created on right side:", canvas.width, "x", canvas.height);
   
   // Handle window resize
   const resizeObserver = new ResizeObserver(() => {
     // Adjust canvas size on container size change
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
-    console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
   });
   
   resizeObserver.observe(container.parentNode);
@@ -217,32 +214,13 @@ function setupNetworkAnimation(canvas, container, heroImage = null) {
 // Initialize animation
 function initializeAnimation() {
   if (!checkBrowserSupport()) {
-    console.error("Browser doesn't support required features for animation");
     return;
   }
   
-  // Create network animation only on home page and behind the image
+  // Create network animation on entire home page
   createNetworkAnimation();
   
-  // Add a simple debug element to confirm script is running
-  const debug = document.createElement('div');
-  debug.style.position = 'fixed';
-  debug.style.bottom = '5px';
-  debug.style.right = '5px';
-  debug.style.padding = '2px 5px';
-  debug.style.background = 'rgba(0,0,0,0.5)';
-  debug.style.color = 'white';
-  debug.style.fontSize = '10px';
-  debug.style.zIndex = '9999';
-  debug.textContent = 'Animation loaded';
-  document.body.appendChild(debug);
-  
-  // Remove debug after 3 seconds
-  setTimeout(() => {
-    if (debug.parentNode) {
-      debug.remove();
-    }
-  }, 3000);
+  // No debug element - removed
 }
 
 // Initialize on DOMContentLoaded
@@ -262,4 +240,22 @@ window.addEventListener('resize', function() {
     document.querySelectorAll('.network-container').forEach(p => p.remove());
     createNetworkAnimation();
   }, 250);
+});
+
+// Add CSS to ensure no horizontal overflow
+document.addEventListener('DOMContentLoaded', function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+    
+    .network-container, canvas {
+      max-width: 100%;
+      overflow: hidden;
+    }
+  `;
+  document.head.appendChild(style);
 });
