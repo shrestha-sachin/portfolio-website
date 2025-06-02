@@ -27,7 +27,7 @@
     <header
       class="fixed w-full z-50 bg-white/80 dark:bg-gray-800 backdrop-blur-md shadow-sm"
     >
-      <div class="container mx-auto px-6 py-3 relative">
+      <div class="container mx-auto px-4 sm:px-6 py-3 relative"> <!-- Changed from px-6 to px-4 sm:px-6 -->
         <div class="flex justify-between items-center">
           <a href="#home" class="text-2xl font-bold gradient-text">Sachin.</a>
 
@@ -110,22 +110,22 @@
     <!-- Home Section - Light -->
     <section
       id="home"
-      class="min-h-screen flex items-center py-20 bg-white dark:bg-gray-900"
+      class="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900" <!-- Adjusted vertical padding -->
     >
-      <div class="container mx-auto px-4 sm:px-6 py-8 md:py-12">
+      <div class="container mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12"> <!-- Reduced padding -->
         <div
-          class="flex flex-col items-center md:flex-row md:items-center gap-8"
+          class="flex flex-col items-center md:flex-row md:items-center gap-4 sm:gap-6 md:gap-8" <!-- Adjusted gap sizes -->
         >
           <!-- Text Content - comes first in DOM but appears second on mobile -->
           <div
             class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left"
           >
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4"> <!-- Adjusted text sizes -->
               Hi, I'm <span class="gradient-text">Sachin Shrestha</span>
             </h1>
             <h2
               id="typewriter"
-              class="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6"
+              class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-6" <!-- Adjusted text sizes -->
             ></h2>
 
             <p
@@ -188,7 +188,7 @@
 
           <!-- Profile Image - appears top on mobile, right on desktop -->
           <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2">
-            <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 floating">
+            <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 floating"> <!-- Smaller image for mobile -->
               <div
                 class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl"
               >
@@ -206,7 +206,7 @@
 
     <!-- About Section - Dark -->
     <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
         <h2 class="text-3xl font-bold text-center mb-12">
           About <span class="gradient-text">Me</span>
         </h2>
@@ -514,7 +514,7 @@
 
     <!-- Experience Section - Dark -->
     <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
         <h2 class="text-3xl font-bold text-center mb-12">
           Work <span class="gradient-text">Experience</span>
         </h2>
@@ -727,7 +727,7 @@
 
     <!-- Education Section - Light -->
     <section id="education" class="py-20 bg-white dark:bg-gray-900">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
         <h2 class="text-3xl font-bold text-center mb-12">
           My <span class="gradient-text">Education</span>
         </h2>
@@ -863,7 +863,7 @@
 
     <!-- Projects Section - Dark -->
     <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
         <h2 class="text-3xl font-bold text-center mb-12">
           Featured <span class="gradient-text">Projects</span>
         </h2>
