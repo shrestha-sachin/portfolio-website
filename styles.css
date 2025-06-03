@@ -273,3 +273,25 @@ body {
 body::before {
   z-index: -2;
 }
+
+/* Ensure consistent container styling */
+.container {
+  width: 100%;
+  max-width: 1280px; /* Adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Fix alignment for all sections */
+section {
+  width: 100%;
+}
+
+/* Footer alignment */
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

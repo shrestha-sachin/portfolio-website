@@ -21,7 +21,7 @@
     </script>
   </head>
   <body
-    class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300"
+    class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden"
   >
     <!-- Header/Navigation -->
     <header
@@ -55,7 +55,7 @@
             <!-- Fixed mobile menu button -->
             <button
               id="mobile-menu-button"
-              class="md:hidden w-10 h-8 w-8 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              class="md:hidden w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               <i class="fas fa-bars"></i>
             </button>
@@ -65,7 +65,7 @@
         <!-- Updated Mobile Menu with right alignment -->
         <div
           id="mobile-menu"
-          class="hidden md:hidden absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50"
+          class="hidden md:hidden absolute right-0 top-10 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50"
         >
           <a
             href="#home"
@@ -110,15 +110,15 @@
     <!-- Home Section - Light -->
     <section
       id="home"
-      class="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900" <!-- Adjusted vertical padding -->
+      class="min-h-[100svh] flex items-center py-10 sm:py-16 md:py-20 bg-white dark:bg-gray-900"
     >
-      <div class="container mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12"> <!-- Reduced padding -->
+      <div class="container mx-auto px-4 sm:px-6">
         <div
-          class="flex flex-col items-center md:flex-row md:items-center gap-4 sm:gap-6 md:gap-8" <!-- Adjusted gap sizes -->
+          class="flex flex-col items-center md:flex-row md:items-center gap-4 sm:gap-6 md:gap-8"
         >
-          <!-- Text Content - comes first in DOM but appears second on mobile -->
+          <!-- Text Content -->
           <div
-            class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left"
+            class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left px-0" <!-- Added px-0 to ensure no extra padding -->
           >
             <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4"> <!-- Adjusted text sizes -->
               Hi, I'm <span class="gradient-text">Sachin Shrestha</span>
@@ -186,9 +186,9 @@
             </div>
           </div>
 
-          <!-- Profile Image - appears top on mobile, right on desktop -->
-          <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2">
-            <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 floating"> <!-- Smaller image for mobile -->
+          <!-- Profile Image -->
+          <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2 px-0"> <!-- Added px-0 to ensure no extra padding -->
+            <div class="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 floating"> <!-- Smaller image for mobile -->
               <div
                 class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl"
               >
@@ -206,7 +206,7 @@
 
     <!-- About Section - Dark -->
     <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
+      <div class="container mx-auto px-4 sm:px-6">
         <h2 class="text-3xl font-bold text-center mb-12">
           About <span class="gradient-text">Me</span>
         </h2>
@@ -234,28 +234,35 @@
               various domains including AI, cloud computing, and blockchain.
             </p>
 
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div>
-                <p class="font-medium">Name:</p>
+            <!-- Replace the grid layout with separated divs -->
+            <div class="flex flex-col space-y-4 mb-8">
+              <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+                <p class="font-medium text-blue-600 dark:text-blue-400">Name:</p>
                 <p class="text-gray-600 dark:text-gray-300">Sachin Shrestha</p>
               </div>
-              <div>
-                <p class="font-medium">Email:</p>
-                <p class="text-gray-600 dark:text-gray-300">
-                  sachinstha600@gmail.com
-                </p>
-              </div>
-              <div>
-                <p class="font-medium">From:</p>
+              
+              <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+                <p class="font-medium text-blue-600 dark:text-blue-400">From:</p>
                 <p class="text-gray-600 dark:text-gray-300">
                   Green Bay, WI, USA
                 </p>
               </div>
-              <div>
-                <p class="font-medium">Experience:</p>
+              
+              <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+                <p class="font-medium text-blue-600 dark:text-blue-400">Email:</p>
+                <p class="text-gray-600 dark:text-gray-300">
+                  <a href="mailto:sachinstha600@gmail.com" class="word-wrap inline-block">
+                    sachinstha600@gmail.com
+                  </a>
+                </p>
+              </div>
+              
+              <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+                <p class="font-medium text-blue-600 dark:text-blue-400">Experience:</p>
                 <p class="text-gray-600 dark:text-gray-300">2+ Years</p>
               </div>
             </div>
+
             <div class="flex justify-center md:justify-start space-x-4">
               <a
                 href="./Resources/Resume/Resume_Sachin.pdf"
@@ -278,7 +285,7 @@
 
     <!-- Skills Section - Light -->
     <section id="skills" class="py-20 bg-white dark:bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="container mx-auto px-4 sm:px-6">
         <div class="text-center mb-16 fade-in">
           <h2
             class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4"
@@ -514,12 +521,13 @@
 
     <!-- Experience Section - Dark -->
     <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
+      <div class="container mx-auto px-4 sm:px-6">
         <h2 class="text-3xl font-bold text-center mb-12">
           Work <span class="gradient-text">Experience</span>
         </h2>
 
-        <div class="max-w-3xl mx-auto">
+        <!-- Remove max-w-3xl to expand to full container width -->
+        <div class="w-full">
           <div class="space-y-8">
             <!-- Experience Item 1 -->
             <div class="timeline-item relative pl-10">
@@ -727,12 +735,13 @@
 
     <!-- Education Section - Light -->
     <section id="education" class="py-20 bg-white dark:bg-gray-900">
-      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
+      <div class="container mx-auto px-4 sm:px-6">
         <h2 class="text-3xl font-bold text-center mb-12">
           My <span class="gradient-text">Education</span>
         </h2>
 
-        <div class="max-w-3xl mx-auto">
+        <!-- Remove max-w-3xl to expand to full container width -->
+        <div class="w-full">
           <div class="space-y-8">
             <!-- Education Item 1 -->
             <div class="timeline-item relative pl-10">
@@ -1063,7 +1072,7 @@
 
     <!-- Contact Section - Light -->
     <section id="contact" class="py-20 bg-white dark:bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="container mx-auto px-4 sm:px-6">
         <div class="text-center mb-16 fade-in">
           <h2 class="text-3xl font-bold text-center mb-12">
             Get In
@@ -1113,7 +1122,9 @@
                       Email
                     </h4>
                     <p class="text-gray-600 dark:text-gray-300">
-                      sachinstha600@gmail.com
+                      <a href="mailto:sachinstha600@gmail.com" class="word-wrap inline-block">
+                        sachinstha600@gmail.com
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -1264,7 +1275,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="container mx-auto px-4 sm:px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="fade-in">
             <h3 class="text-2xl font-bold mb-4">
