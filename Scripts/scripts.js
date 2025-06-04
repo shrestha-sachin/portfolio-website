@@ -115,69 +115,60 @@ console.log({ name, email, subject, message });
 contactForm.reset();
 });
 
-// Handle contact form submissions with EmailJS
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  // Change button to loading state
-  const submitButton = document.getElementById('submit-btn');
-  const originalText = submitButton.innerHTML;
-  submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  submitButton.disabled = true;
-  
-  // Get form data
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
-  
-  // Send email using EmailJS
-  const templateParams = {
-    from_name: name,
-    from_email: email,
-    subject: subject,
-    message: message
-  };
-  
-  emailjs.send('service_ogf204q', 'template_cu2z2xf', templateParams)
-    .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
-      // Show success message
-      alert('Your message has been sent successfully!');
-      // Reset form
-      document.getElementById('contact-form').reset();
-    }, function(error) {
-      console.log('FAILED...', error);
-      alert('Failed to send message. Please try again later.');
-    })
-    .finally(function() {
-      // Restore button
-      submitButton.innerHTML = originalText;
-      submitButton.disabled = false;
+// Check if the contact form exists before adding event listener
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Change button to loading state
+      const submitButton = document.getElementById('submit-btn');
+      const originalText = submitButton.innerHTML;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitButton.disabled = true;
+      
+      // Send form data using EmailJS
+      emailjs.sendForm('service_ogf204q', 'template_cu2z2xf', this)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Your message has been sent successfully!');
+          contactForm.reset();
+        }, function(error) {
+          console.log('FAILED...', error);
+          alert('Failed to send message. Please try again.');
+        })
+        .finally(function() {
+          // Restore button state
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        });
     });
-});
-
-// Handle newsletter form submissions
-document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+  }
   
-  // Get form data
-  const email = document.getElementById('subscriber-email').value;
-  
-  // Send email using EmailJS
-  const templateParams = {
-    subscriber_email: email
-  };
-  
-  emailjs.send('service_ogf204q', 'template_12x5xgf', templateParams)
-    .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Thank you for subscribing to my newsletter!');
-      document.getElementById('newsletter-form').reset();
-    }, function(error) {
-      console.log('FAILED...', error);
-      alert('Failed to subscribe. Please try again later.');
+  // Handle newsletter form
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get the email
+      const subscriberEmail = document.getElementById('subscriber-email').value;
+      
+      // Use EmailJS to send the subscription
+      emailjs.send('service_ogf204q', 'template_newsletter', {
+        subscriber_email: subscriberEmail
+      })
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Thank you for subscribing to our newsletter!');
+          newsletterForm.reset();
+        }, function(error) {
+          console.log('FAILED...', error);
+          alert('Failed to subscribe. Please try again.');
+        });
     });
+  }
 });
 
 // Floating animation for elements
