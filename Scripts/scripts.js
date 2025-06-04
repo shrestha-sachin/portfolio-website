@@ -96,80 +96,57 @@ document.querySelectorAll(".section").forEach((section) => {
 observer.observe(section);
 });
 
-// Form submission
-const contactForm = document.getElementById("contact-form");
+document.addEventListener('DOMContentLoaded', function () {
+  // ✅ Initialize EmailJS
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
 
-contactForm.addEventListener("submit", (e) => {
-e.preventDefault();
-
-// Get form values
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const subject = document.getElementById("subject").value;
-const message = document.getElementById("message").value;
-
-// Here you would typically send the data to a server
-console.log({ name, email, subject, message });
-
-// Reset form
-contactForm.reset();
-});
-
-// Check if the contact form exists before adding event listener
-document.addEventListener('DOMContentLoaded', function() {
+  // ✅ Contact form submission
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
+    contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      
-      // Change button to loading state
+
       const submitButton = document.getElementById('submit-btn');
       const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitButton.disabled = true;
-      
-      // Send form data using EmailJS
+
       emailjs.sendForm('service_ogf204q', 'template_cu2z2xf', this)
-        .then(function(response) {
+        .then(function (response) {
           console.log('SUCCESS!', response.status, response.text);
           alert('Your message has been sent successfully!');
           contactForm.reset();
-        }, function(error) {
-          console.log('FAILED...', error);
+        }, function (error) {
+          console.error('FAILED...', error);
           alert('Failed to send message. Please try again.');
         })
-        .finally(function() {
-          // Restore button state
+        .finally(function () {
           submitButton.innerHTML = originalText;
           submitButton.disabled = false;
         });
     });
   }
-  
-  // Handle newsletter form
+
+  // ✅ Newsletter form
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(event) {
+    newsletterForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      
-      // Get the email
       const subscriberEmail = document.getElementById('subscriber-email').value;
-      
-      // Use EmailJS to send the subscription
+
       emailjs.send('service_ogf204q', 'template_newsletter', {
         subscriber_email: subscriberEmail
       })
-        .then(function(response) {
-          console.log('SUCCESS!', response.status, response.text);
+        .then(function (response) {
           alert('Thank you for subscribing to our newsletter!');
           newsletterForm.reset();
-        }, function(error) {
-          console.log('FAILED...', error);
+        }, function (error) {
           alert('Failed to subscribe. Please try again.');
         });
     });
   }
 });
+
 
 // Floating animation for elements
 const floatingElements = document.querySelectorAll(".floating");
