@@ -98,7 +98,7 @@ observer.observe(section);
 
 document.addEventListener('DOMContentLoaded', function () {
   // ✅ Initialize EmailJS
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
+  emailjs.init("3Th8vmdMXGAiWoz5z"); // Replace with your actual EmailJS public key
 
   // ✅ Contact form submission
   const contactForm = document.getElementById('contact-form');
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
       const subscriberEmail = document.getElementById('subscriber-email').value;
 
-      emailjs.send('service_ogf204q', 'template_newsletter', {
+      emailjs.send('service_ogf204q', 'template_12x5xgf', {
         subscriber_email: subscriberEmail
       })
         .then(function (response) {
