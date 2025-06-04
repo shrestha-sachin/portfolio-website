@@ -96,57 +96,105 @@ document.querySelectorAll(".section").forEach((section) => {
 observer.observe(section);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  // ✅ Initialize EmailJS
-  emailjs.init("3Th8vmdMXGAiWoz5z"); // Replace with your actual EmailJS public key
-
-  // ✅ Contact form submission
+// Form submission handling
+document.addEventListener('DOMContentLoaded', function() {
+  // Contact form setup
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
+    contactForm.addEventListener('submit', function(event) {
       event.preventDefault();
-
+      
       const submitButton = document.getElementById('submit-btn');
       const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitButton.disabled = true;
-
-      emailjs.sendForm('service_ogf204q', 'template_cu2z2xf', this)
-        .then(function (response) {
-          console.log('SUCCESS!', response.status, response.text);
-          alert('Your message has been sent successfully!');
-          contactForm.reset();
-        }, function (error) {
-          console.error('FAILED...', error);
-          alert('Failed to send message. Please try again.');
-        })
-        .finally(function () {
-          submitButton.innerHTML = originalText;
-          submitButton.disabled = false;
-        });
+      
+      console.log("Submitting contact form...");
+      
+      if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_ogf204q', 'template_cu2z2xf', contactForm)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            showNotification('success', 'Your message has been sent successfully!');
+            contactForm.reset();
+          }, function(error) {
+            console.error('FAILED...', error);
+            showNotification('error', 'Failed to send message. Please try again.');
+          })
+          .finally(function() {
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+          });
+      } else {
+        console.error("EmailJS is not loaded!");
+        showNotification('error', 'Email service not loaded. Please try again later.');
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+      }
     });
   }
 
-  // ✅ Newsletter form
+  // Newsletter form setup
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function (event) {
+    newsletterForm.addEventListener('submit', function(event) {
       event.preventDefault();
       const subscriberEmail = document.getElementById('subscriber-email').value;
-
-      emailjs.send('service_ogf204q', 'template_12x5xgf', {
-        subscriber_email: subscriberEmail
-      })
-        .then(function (response) {
-          alert('Thank you for subscribing to our newsletter!');
+      
+      console.log("Attempting to subscribe email:", subscriberEmail);
+      
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_ogf204q', 'template_12x5xgf', {
+          subscriber_email: subscriberEmail
+        })
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          showNotification('success', 'Thank you for subscribing to our newsletter!');
           newsletterForm.reset();
-        }, function (error) {
-          alert('Failed to subscribe. Please try again.');
+        }, function(error) {
+          console.error('FAILED...', error);
+          showNotification('error', 'Failed to subscribe. Please try again.');
         });
+      } else {
+        console.error("EmailJS is not loaded!");
+        showNotification('error', 'Email service not loaded. Please try again later.');
+      }
     });
   }
+  
+  // Notification function
+  window.showNotification = function(type, message) {
+    const notification = document.getElementById('notification');
+    const notificationIcon = document.getElementById('notification-icon');
+    const notificationMessage = document.getElementById('notification-message');
+    
+    // Set message and icon
+    notificationMessage.textContent = message;
+    
+    // Set styles based on type
+    if (type === 'success') {
+      notification.classList.remove('bg-red-500', 'text-red-100');
+      notification.classList.add('bg-green-500', 'text-green-100');
+      notificationIcon.classList.remove('fa-times-circle');
+      notificationIcon.classList.add('fa-check-circle');
+    } else {
+      notification.classList.remove('bg-green-500', 'text-green-100');
+      notification.classList.add('bg-red-500', 'text-red-100');
+      notificationIcon.classList.remove('fa-check-circle');
+      notificationIcon.classList.add('fa-times-circle');
+    }
+    
+    // Show notification
+    notification.classList.remove('translate-y-full', 'opacity-0');
+    notification.classList.add('translate-y-0', 'opacity-100');
+    
+    // Auto hide after 5 seconds
+    setTimeout(function() {
+      notification.classList.add('translate-y-full', 'opacity-0');
+      notification.classList.remove('translate-y-0', 'opacity-100');
+    }, 5000);
+  }
 });
-
 
 // Floating animation for elements
 const floatingElements = document.querySelectorAll(".floating");

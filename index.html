@@ -1358,6 +1358,14 @@
       </div>
     </section>
 
+    <!-- Notification container -->
+<div id="notification" class="fixed bottom-5 right-5 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-y-full opacity-0">
+  <div class="flex items-center">
+    <i id="notification-icon" class="fas mr-3 text-lg"></i>
+    <p id="notification-message" class="font-medium"></p>
+  </div>
+</div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 dark:bg-gray-800">
       <div class="container mx-auto px-4 sm:px-6">
@@ -1489,8 +1497,12 @@
     <script src="./Scripts/scripts.js" defer></script>
 
     <!-- Add EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("3Th8vmdMXGAiWoz5z");
+   })();
+</script>
 
   </body>
 </html>
