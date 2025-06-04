@@ -1278,71 +1278,81 @@
           </div>
 
           <div class="fade-in">
-            <form class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm">
-              <h3 class="text-xl font-semibold mb-6 dark:text-gray-100">
-                Send Me a Message
-              </h3>
+            <!-- Contact form with EmailJS -->
+<form id="contact-form" class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+  <h3 class="text-xl font-semibold mb-6 dark:text-gray-100">
+    Send Me a Message
+  </h3>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label
-                    for="name"
-                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >Name</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="email"
-                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
-                  />
-                </div>
-              </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+    <div>
+      <label
+        for="name"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+        >Name</label
+      >
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+        required
+      />
+    </div>
+    <div>
+      <label
+        for="email"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+        >Email</label
+      >
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+        required
+      />
+    </div>
+  </div>
 
-              <div class="mb-4">
-                <label
-                  for="subject"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                  >Subject</label
-                >
-                <input
-                  type="text"
-                  id="subject"
-                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
-                />
-              </div>
+  <div class="mb-4">
+    <label
+      for="subject"
+      class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+      >Subject</label
+    >
+    <input
+      type="text"
+      id="subject"
+      name="subject"
+      class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+      required
+    />
+  </div>
 
-              <div class="mb-4">
-                <label
-                  for="message"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                  >Message</label
-                >
-                <textarea
-                  id="message"
-                  rows="5"
-                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
-                ></textarea>
-              </div>
+  <div class="mb-4">
+    <label
+      for="message"
+      class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+      >Message</label
+    >
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+      required
+    ></textarea>
+  </div>
 
-              <button
-                type="submit"
-                class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors w-full glow"
-              >
-                Send Message <i class="fas fa-paper-plane ml-2"></i>
-              </button>
-            </form>
+  <button
+    type="submit"
+    id="submit-btn"
+    class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors w-full glow"
+  >
+    Send Message <i class="fas fa-paper-plane ml-2"></i>
+  </button>
+</form>
           </div>
         </div>
       </div>
@@ -1439,19 +1449,23 @@
             <p class="text-gray-400 mb-4">
               Subscribe to my newsletter for the latest updates and projects.
             </p>
-            <form class="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full"
-              />
-              <button
-                type="submit"
-                class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-r-lg hover:from-blue-700 hover:to-purple-700 text-white font-medium transition-colors"
-              >
-                <i class="fas fa-paper-plane"></i>
-              </button>
-            </form>
+            <!-- Newsletter form with EmailJS -->
+<form id="newsletter-form" class="flex">
+  <input
+    type="email"
+    id="subscriber-email"
+    name="subscriber_email"
+    placeholder="Your email"
+    class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full"
+    required
+  />
+  <button
+    type="submit"
+    class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-r-lg hover:from-blue-700 hover:to-purple-700 text-white font-medium transition-colors"
+  >
+    <i class="fas fa-paper-plane"></i>
+  </button>
+</form>
           </div>
         </div>
 
@@ -1473,5 +1487,13 @@
     <script src="./Scripts/typewriter.js" defer></script>
     <script src="./Scripts/animation.js" defer></script>
     <script src="./Scripts/scripts.js" defer></script>
+
+    <!-- Add EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script type="text/javascript">
+   (function() {
+      emailjs.init("3Th8vmdMXGAiWoz5z"); // Add your EmailJS user ID here
+   })();
+</script>
   </body>
 </html>
