@@ -1,3 +1,5 @@
+
+console.log("EmailJS loaded?", typeof emailjs !== 'undefined', emailjs);
 // Dark mode toggle
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
@@ -103,22 +105,24 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactForm) {
     contactForm.addEventListener('submit', function(event) {
       event.preventDefault();
-      
       const submitButton = document.getElementById('submit-btn');
       const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitButton.disabled = true;
-      
-      console.log("Submitting contact form...");
-      
+
+      const templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
       if (typeof emailjs !== 'undefined') {
-        emailjs.sendForm('service_ogf204q', 'template_cu2z2xf', contactForm)
+        emailjs.send('service_ogf204q', 'template_cu2z2xf', templateParams)
           .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
             showNotification('success', 'Your message has been sent successfully!');
             contactForm.reset();
           }, function(error) {
-            console.error('FAILED...', error);
             showNotification('error', 'Failed to send message. Please try again.');
           })
           .finally(function() {
@@ -126,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = false;
           });
       } else {
-        console.error("EmailJS is not loaded!");
         showNotification('error', 'Email service not loaded. Please try again later.');
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
@@ -145,7 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (typeof emailjs !== 'undefined') {
         emailjs.send('service_ogf204q', 'template_12x5xgf', {
-          subscriber_email: subscriberEmail
+          subscriber_email: subscriberEmail,
+          // Add any other fields your template might need
+          to_name: "Sachin"
         })
         .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);

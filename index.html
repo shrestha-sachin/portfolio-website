@@ -1492,17 +1492,13 @@
     >
       <i class="fas fa-arrow-up"></i>
     </button>
+    <!-- Add EmailJS SDK and init BEFORE your scripts.js -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+    <script type="text/javascript">
+      emailjs.init("jqMJUEt3g2hy75Y1m");
+    </script>
     <script src="./Scripts/typewriter.js" defer></script>
     <script src="./Scripts/animation.js" defer></script>
     <script src="./Scripts/scripts.js" defer></script>
-
-    <!-- Add EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("3Th8vmdMXGAiWoz5z");
-   })();
-</script>
-
   </body>
 </html>
