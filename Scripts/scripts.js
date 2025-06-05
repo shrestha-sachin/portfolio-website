@@ -100,6 +100,11 @@ observer.observe(section);
 
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize EmailJS in case the HTML snippet fails to load first
+  if (typeof emailjs !== 'undefined' && typeof emailjs.init === 'function') {
+    emailjs.init('jqMJUEt3g2hy75Y1m');
+  }
+
   // Contact form setup
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -110,15 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitButton.disabled = true;
 
-      const templateParams = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-      };
-
       if (typeof emailjs !== 'undefined') {
-        emailjs.send('service_ogf204q', 'template_ov010nj', templateParams)
+        emailjs.sendForm('service_ogf204q', 'template_ov010nj', this)
           .then(function(response) {
             showNotification('success', 'Your message has been sent successfully!');
             contactForm.reset();
