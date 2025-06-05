@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       if (typeof emailjs !== 'undefined') {
-        emailjs.send('service_ogf204q', 'template_ov010nj', templateParams)
+        emailjs.send('service_ogf204q', 'template_cu2z2xf', templateParams)
           .then(function(response) {
             showNotification('success', 'Your message has been sent successfully!');
             contactForm.reset();
