@@ -1492,10 +1492,18 @@
     >
       <i class="fas fa-arrow-up"></i>
     </button>
-    <!-- Add EmailJS SDK and init BEFORE your scripts.js -->
+    <!-- Replace the existing EmailJS script block with this: -->
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
-    <script type="text/javascript">
-      emailjs.init("jqMJUEt3g2hy75Y1m");
+    <script>
+      // Defer initialization until DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof emailjs !== 'undefined') {
+          emailjs.init("jqMJUEt3g2hy75Y1m");
+          console.log("EmailJS initialized successfully");
+        } else {
+          console.error("EmailJS SDK failed to load");
+        }
+      });
     </script>
     <script src="./Scripts/typewriter.js" defer></script>
     <script src="./Scripts/animation.js" defer></script>
