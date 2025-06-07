@@ -1,3 +1,5 @@
+const emailService = require('../services/emailService');
+
 class ContactController {
     async submitContactForm(req, res) {
         try {
@@ -43,4 +45,4 @@ class ContactController {
     }
 }
 
-export default new ContactController();
+module.exports = new ContactController();

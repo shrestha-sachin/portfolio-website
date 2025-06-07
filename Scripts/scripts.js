@@ -105,7 +105,7 @@ if (contactForm) {
     };
 
     // Send to your backend API instead of EmailJS
-    fetch('https://sachinshrestha.com:3000/api/contact/submit', {
+    fetch('https://sachin-portfolio-api.azurewebsites.net/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -137,27 +137,42 @@ const newsletterForm = document.getElementById('newsletter-form');
 if (newsletterForm) {
   newsletterForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    const subscriberEmail = document.getElementById('subscriber-email').value;
     
+    // Get the subscribe button and show loading state
+    const subscribeButton = newsletterForm.querySelector('button[type="submit"]');
+    const originalText = subscribeButton.innerHTML;
+    subscribeButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+    subscribeButton.disabled = true;
+    
+    const subscriberEmail = document.getElementById('subscriber-email').value;
     console.log("Attempting to subscribe email:", subscriberEmail);
     
-    if (typeof emailjs !== 'undefined' && emailjs.send) {
-      emailjs.send('service_ogf204q', 'template_12x5xgf', {
-        subscriber_email: subscriberEmail,
-        to_name: "Sachin"
-      })
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        showNotification('success', 'Thank you for subscribing!');
+    // Send to your Azure backend API
+    fetch('https://sachin-portfolio-api.azurewebsites.net/api/newsletter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: subscriberEmail })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        showNotification('success', data.message || 'Thank you for subscribing!');
         newsletterForm.reset();
-      }, function(error) {
-        console.error('FAILED...', error);
-        showNotification('error', 'Failed to subscribe. Please try again.');
-      });
-    } else {
-      console.error("EmailJS is not loaded!");
-      showNotification('error', 'Email service not loaded. Please try again later.');
-    }
+      } else if (data.errors) {
+        showNotification('error', data.errors.join(' '));
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showNotification('error', 'Failed to subscribe. Please try again.');
+    })
+    .finally(() => {
+      // Reset button state
+      subscribeButton.innerHTML = originalText;
+      subscribeButton.disabled = false;
+    });
   });
 }
 
