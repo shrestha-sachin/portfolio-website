@@ -11,12 +11,20 @@ class ContactController {
                 return res.status(400).json({ errors: validationErrors });
             }
 
-            // Send email using the email service
-            await emailService.sendEmail({
-                to: process.env.CONTACT_EMAIL, // Use an environment variable for the recipient email
-                subject: subject || 'New Contact Form Submission',
-                text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\nTime: ${time}`
-            });
+            // Send email using the email service - updated to match emailService implementation
+            await emailService.sendEmail(
+                process.env.CONTACT_EMAIL || 'sachinstha600@gmail.com',
+                subject || 'New Contact Form Submission',
+                `Name: ${name}\nEmail: ${email}\nMessage: ${message}\nTime: ${time}`,
+                `<div style="font-family: Arial, sans-serif; padding: 20px;">
+                    <h2>New Contact Form Submission</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Time:</strong> ${time || new Date().toLocaleString()}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>${message.replace(/\n/g, '<br>')}</p>
+                </div>`
+            );
 
             return res.status(200).json({ message: 'Your message has been sent successfully!' });
         } catch (error) {
