@@ -1,6 +1,7 @@
 // Replace the entire file with this corrected version
 //console.log("EmailJS loaded?", typeof emailjs !== 'undefined', emailjs);
-
+// Update the URL to use your custom domain
+const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
 // Dark mode toggle
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
@@ -66,15 +67,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize EmailJS if not already initialized
-  if (typeof emailjs === 'undefined') {
-    console.error('EmailJS not loaded!');
-  } else if (!emailjs.init) {
-    console.error('EmailJS not initialized!');
-  } else {
-    console.log('EmailJS is ready');
-  }
-
   // Contact form setup
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
@@ -104,8 +96,7 @@ if (contactForm) {
       subject: document.getElementById('subject').value || 'New message from portfolio contact form'
     };
 
-    // Update the URL to use your custom domain
-    const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
+    
 
     // Send to your backend API instead of EmailJS
     fetch(`${API_BASE_URL}/api/contact`, {
