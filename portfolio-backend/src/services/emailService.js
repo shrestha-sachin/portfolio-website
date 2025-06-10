@@ -15,9 +15,9 @@ const sendEmail = async (to, subject, text, html) => {
   try {
     const client = initializeEmailClient();
     
-    // Create the email message
+    // Create the email message with verified domain
     const emailMessage = {
-      senderAddress: process.env.EMAIL_FROM, // Your Azure provided email or verified domain
+      senderAddress: process.env.EMAIL_FROM,
       content: {
         subject: subject,
         plainText: text,
@@ -25,11 +25,14 @@ const sendEmail = async (to, subject, text, html) => {
       },
       recipients: {
         to: [{ address: to }]
-      }
+      },
+      // Optional: Add these if you've configured SPF, DKIM in Azure
+      importance: "normal",
+      userEngagementTrackingDisabled: false
     };
 
     // Send the email
-    console.log(`Sending email to ${to}...`);
+    console.log(`Sending email to ${to} from ${process.env.EMAIL_FROM}...`);
     const poller = await client.beginSend(emailMessage);
     const response = await poller.pollUntilDone();
     
