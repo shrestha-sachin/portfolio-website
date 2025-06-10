@@ -104,8 +104,11 @@ if (contactForm) {
       subject: document.getElementById('subject').value || 'New message from portfolio contact form'
     };
 
+    // Update the URL to use your custom domain
+    const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
+
     // Send to your backend API instead of EmailJS
-    fetch('https://sachin-portfolio-api.azurewebsites.net/api/contact', {
+    fetch(`${API_BASE_URL}/api/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -148,7 +151,7 @@ if (newsletterForm) {
     console.log("Attempting to subscribe email:", subscriberEmail);
     
     // Send to your Azure backend API
-    fetch('https://sachin-portfolio-api.azurewebsites.net/api/newsletter', {
+    fetch(`${API_BASE_URL}/api/newsletter`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
