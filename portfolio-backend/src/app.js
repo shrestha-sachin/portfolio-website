@@ -12,16 +12,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
   origin: [
     'https://sachinshrestha.com',
-    'https://shrestha-sachin.github.io', // Add your GitHub Pages URL
-    'http://localhost:3000'  // For local development
+    'https://shrestha-sachin.github.io',
+    'http://localhost:3000'
   ],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// API Routes
-app.use('/api', require('./routes/contactRoutes'));
+// API Routes - Fixed to match frontend expectations
 app.use('/api', newsletterRoutes);
+app.use('/api', contactRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

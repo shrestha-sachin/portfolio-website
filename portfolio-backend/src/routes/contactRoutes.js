@@ -1,13 +1,8 @@
 const express = require('express');
-const ContactController = require('../controllers/contactController');
+const router = express.Router();
+const contactController = require('../controllers/contactController');
 
-const setContactRoutes = (app) => {
-    const router = express.Router();
-    const contactController = new ContactController();
+// POST /api/contact
+router.post('/contact', contactController.submitContactForm.bind(contactController));
 
-    router.post('/contact', contactController.submitContactForm.bind(contactController));
-
-    app.use('/api', router);
-};
-
-module.exports = setContactRoutes;
+module.exports = router;
