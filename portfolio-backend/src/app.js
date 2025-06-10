@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
   origin: [
     'https://sachinshrestha.com',
+    'https://shrestha-sachin.github.io', // Add your GitHub Pages URL
     'http://localhost:3000'  // For local development
   ],
   methods: ['GET', 'POST'],
