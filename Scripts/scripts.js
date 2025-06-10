@@ -1,7 +1,6 @@
-// Replace the entire file with this corrected version
-//console.log("EmailJS loaded?", typeof emailjs !== 'undefined', emailjs);
-// Update the URL to use your custom domain
+
 const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
+
 // Dark mode toggle
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;

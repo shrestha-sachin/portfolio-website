@@ -4,7 +4,12 @@ const app = require('./src/app');
 
 dotenv.config();
 
-const PORT = process.env.PORT || 8080; // Azure prefers port 8080 by default
+// Azure App Service will set process.env.PORT
+const PORT = process.env.PORT || 8080;
+
+// Log startup information for easier troubleshooting
+console.log(`Starting server in ${process.env.NODE_ENV || 'development'} mode`);
+console.log(`NODE_VERSION: ${process.version}`);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
