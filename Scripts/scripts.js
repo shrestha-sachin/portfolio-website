@@ -1,4 +1,3 @@
-
 const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
 
 // Dark mode toggle
@@ -66,141 +65,122 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
-  // Contact form setup
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const submitButton = document.getElementById('submit-btn');
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
+  const contactForm = document.getElementById('contact-form');
+  const newsletterForm = document.getElementById('newsletter-form');
 
-    // Get current time in a readable format
-    const now = new Date();
-    const timeString = now.toLocaleString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+  // Contact form handler
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.innerHTML;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitButton.disabled = true;
+      
+      // Get form data
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        time: new Date().toISOString()
+      };
+      
+      // Send to Azure API backend
+      fetch(`${API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          showNotification('success', data.message);
+          contactForm.reset();
+        } else if (data.errors) {
+          showNotification('error', data.errors.join(' '));
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showNotification('error', 'Failed to send message. Please try again.');
+      })
+      .finally(() => {
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+      });
     });
-
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value,
-      time: timeString,
-      subject: document.getElementById('subject').value || 'New message from portfolio contact form'
-    };
-
-    
-
-    // Send to your backend API instead of EmailJS
-    fetch(`${API_BASE_URL}/api/contact`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.message) {
-        showNotification('success', data.message);
-        contactForm.reset();
-      } else if (data.errors) {
-        showNotification('error', data.errors.join(' '));
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      showNotification('error', 'Failed to send message. Please try again.');
-    })
-    .finally(() => {
-      submitButton.innerHTML = originalText;
-      submitButton.disabled = false;
-    });
-  });
-}
-
-// Newsletter form setup
-const newsletterForm = document.getElementById('newsletter-form');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Get the subscribe button and show loading state
-    const subscribeButton = newsletterForm.querySelector('button[type="submit"]');
-    const originalText = subscribeButton.innerHTML;
-    subscribeButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-    subscribeButton.disabled = true;
-    
-    const subscriberEmail = document.getElementById('subscriber-email').value;
-    console.log("Attempting to subscribe email:", subscriberEmail);
-    
-    // Send to your Azure backend API
-    fetch(`${API_BASE_URL}/api/newsletter`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email: subscriberEmail })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.message) {
-        showNotification('success', data.message || 'Thank you for subscribing!');
-        newsletterForm.reset();
-      } else if (data.errors) {
-        showNotification('error', data.errors.join(' '));
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      showNotification('error', 'Failed to subscribe. Please try again.');
-    })
-    .finally(() => {
-      // Reset button state
-      subscribeButton.innerHTML = originalText;
-      subscribeButton.disabled = false;
-    });
-  });
-}
-
-// Notification function
-window.showNotification = function(type, message) {
-  const notification = document.getElementById('notification');
-  const notificationIcon = document.getElementById('notification-icon');
-  const notificationMessage = document.getElementById('notification-message');
-  
-  // Set message and icon
-  notificationMessage.textContent = message;
-  
-  // Set styles based on type
-  notification.className = 'fixed bottom-5 right-5 p-4 rounded-lg shadow-lg transition-all duration-300 transform'; 
-  
-  if (type === 'success') {
-    notification.classList.add('bg-green-500', 'text-white');
-    notificationIcon.className = 'fas fa-check-circle mr-3 text-lg';
-    notification.classList.remove('bg-red-500');
-  } else {
-    notification.classList.add('bg-red-500', 'text-white');
-    notificationIcon.className = 'fas fa-times-circle mr-3 text-lg';
-    notification.classList.remove('bg-green-500');
   }
-  
-  // Show notification
-  notification.classList.remove('translate-y-full', 'opacity-0');
-  notification.classList.add('translate-y-0', 'opacity-100');
-  
-  // Auto hide after 5 seconds
-  setTimeout(function() {
-    notification.classList.add('translate-y-full', 'opacity-0');
-    notification.classList.remove('translate-y-0', 'opacity-100');
-  }, 5000);
-}
+
+  // Newsletter form handler
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const subscribeButton = newsletterForm.querySelector('button[type="submit"]');
+      const originalText = subscribeButton.innerHTML;
+      subscribeButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+      subscribeButton.disabled = true;
+      
+      const subscriberEmail = document.getElementById('subscriber-email').value;
+      console.log('Attempting to subscribe email:', subscriberEmail);
+      
+      // Send to Azure API backend
+      fetch(`${API_BASE_URL}/api/newsletter`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: subscriberEmail })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          showNotification('success', data.message);
+          newsletterForm.reset();
+        } else if (data.error) {
+          showNotification('error', data.error);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showNotification('error', 'Failed to subscribe. Please try again.');
+      })
+      .finally(() => {
+        subscribeButton.innerHTML = originalText;
+        subscribeButton.disabled = false;
+      });
+    });
+  }
+
+  // Notification function
+  function showNotification(type, message) {
+    const notification = document.getElementById('notification');
+    const notificationIcon = document.getElementById('notification-icon');
+    const notificationMessage = document.getElementById('notification-message');
+    
+    if (type === 'success') {
+      notification.classList.add('bg-green-500');
+      notification.classList.remove('bg-red-500');
+      notificationIcon.classList.add('fa-check-circle');
+      notificationIcon.classList.remove('fa-exclamation-circle');
+    } else {
+      notification.classList.add('bg-red-500');
+      notification.classList.remove('bg-green-500');
+      notificationIcon.classList.add('fa-exclamation-circle');
+      notificationIcon.classList.remove('fa-check-circle');
+    }
+    
+    notificationMessage.textContent = message;
+    notification.classList.remove('translate-y-full', 'opacity-0');
+    
+    setTimeout(() => {
+      notification.classList.add('translate-y-full', 'opacity-0');
+    }, 5000);
+  }
 });
 
 // Floating animation for elements
