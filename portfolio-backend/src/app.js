@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
   origin: [
     'https://sachinshrestha.com',
+    'https://www.sachinshrestha.com',
     'https://shrestha-sachin.github.io',
     'http://localhost:3000',
     'http://localhost:5500',
