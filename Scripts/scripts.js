@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
+// Remove the Azure API URL since we're using FormSubmit
+// const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
 
 // Dark mode toggle
 const themeToggle = document.getElementById("theme-toggle");
@@ -63,97 +64,53 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Form submission handling
+// Form submission handling for UI enhancements
 document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.getElementById('contact-form');
   const newsletterForm = document.getElementById('newsletter-form');
 
-  // Contact form handler
+  // Contact form handler - just for UI, let FormSubmit handle the actual submission
   if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
+    contactForm.addEventListener('submit', function() {
       const submitButton = contactForm.querySelector('button[type="submit"]');
       const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      submitButton.disabled = true;
       
-      // Get form data
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-        time: new Date().toISOString()
-      };
+      // We don't prevent default - FormSubmit will handle the actual submission
+      // Just show a loader while navigating away
       
-      // Send to Azure API backend
-      fetch(`${API_BASE_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message) {
-          showNotification('success', data.message);
-          contactForm.reset();
-        } else if (data.errors) {
-          showNotification('error', data.errors.join(' '));
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        showNotification('error', 'Failed to send message. Please try again.');
-      })
-      .finally(() => {
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-      });
+      // Store that form was submitted in session storage to show success notification
+      // when user returns from FormSubmit redirect
+      sessionStorage.setItem('contactFormSubmitted', 'true');
     });
   }
 
-  // Newsletter form handler
+  // Newsletter form handler - just for UI, let FormSubmit handle the actual submission
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
+    newsletterForm.addEventListener('submit', function() {
       const subscribeButton = newsletterForm.querySelector('button[type="submit"]');
       const originalText = subscribeButton.innerHTML;
       subscribeButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-      subscribeButton.disabled = true;
       
-      const subscriberEmail = document.getElementById('subscriber-email').value;
-      console.log('Attempting to subscribe email:', subscriberEmail);
+      // We don't prevent default - FormSubmit will handle the actual submission
+      // Just show a loader while navigating away
       
-      // Send to Azure API backend
-      fetch(`${API_BASE_URL}/api/newsletter`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: subscriberEmail })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message) {
-          showNotification('success', data.message);
-          newsletterForm.reset();
-        } else if (data.error) {
-          showNotification('error', data.error);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        showNotification('error', 'Failed to subscribe. Please try again.');
-      })
-      .finally(() => {
-        subscribeButton.innerHTML = originalText;
-        subscribeButton.disabled = false;
-      });
+      // Store that form was submitted in session storage to show success notification
+      // when user returns from FormSubmit redirect
+      sessionStorage.setItem('newsletterFormSubmitted', 'true');
     });
+  }
+
+  // Check if we've been redirected back after a form submission
+  // This works with the _next parameter in the FormSubmit configuration
+  if (sessionStorage.getItem('contactFormSubmitted')) {
+    showNotification('success', 'Message sent successfully!');
+    sessionStorage.removeItem('contactFormSubmitted');
+  }
+  
+  if (sessionStorage.getItem('newsletterFormSubmitted')) {
+    showNotification('success', 'Subscribed successfully!');
+    sessionStorage.removeItem('newsletterFormSubmitted');
   }
 
   // Notification function
