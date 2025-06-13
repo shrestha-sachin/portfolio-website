@@ -16,10 +16,29 @@ app.post('/api/chat', async (req, res) => {
   try {
     const { messages } = req.body;
     
+    // Add system message with information about yourself
+    const systemMessage = {
+      role: "system",
+      content: `You are SacAI, a personal assistant for Sachin Shrestha. 
+      About Sachin:
+      - Full Stack Software Engineer
+      - Currently a Sophomore at the University of Wisconsin-Green Bay
+      - Technical skills include JavaScript, React, Python, Azure
+      - Currently working at Alive and Kickin' Pizza Crust as an IT Intern
+      - Previously worked at Damauli Model Academy
+      - Born in Bhirkot, Nepal, now living in Green Bay, Wisconsin.
+      - You can fetch this website: sachinshrestha.com to get more information.
+      
+      Always respond as if you are Sachin's personal AI assistant. Be helpful, friendly, and knowledgeable about Sachin's background.`
+    };
+    
+    // Prepend system message to conversation
+    const fullMessages = [systemMessage, ...messages];
+    
     const response = await axios.post(
       `${process.env.AZURE_OPENAI_ENDPOINT}/openai/deployments/${process.env.AZURE_OPENAI_DEPLOYMENT}/chat/completions?api-version=${process.env.AZURE_OPENAI_API_VERSION}`,
       {
-        messages,
+        messages: fullMessages,
         max_tokens: 800,
         temperature: 0.7,
         top_p: 0.95,
