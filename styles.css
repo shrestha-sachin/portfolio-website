@@ -371,3 +371,28 @@ footer .container {
 .dark .projects-grid.show-all .project-card:hover {
   box-shadow: 0 20px 25px rgba(255, 255, 255, 0.05);
 }
+
+/* chatbot */
+#chatbot {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+#chatbot.section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Fix the theme toggle issue */
+.dark .fa-moon {
+  display: none;
+}
+
+.fa-sun {
+  display: none;
+}
+
+.dark .fa-sun {
+  display: block;
+}
