@@ -1,7 +1,7 @@
 // Remove the Azure API URL since we're using FormSubmit
 // const API_BASE_URL = 'https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net';
 
-// Dark mode toggle
+// Dark mode toggle - fixed version
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
 const moonIcon = themeToggle.querySelector(".fa-moon");
@@ -11,27 +11,34 @@ function setTheme(theme) {
   if (theme === "dark") {
     html.classList.add("dark");
     localStorage.setItem("theme", "dark");
+    
+    // Make sure to explicitly handle both icons
     moonIcon.classList.add("hidden");
     sunIcon.classList.remove("hidden");
   } else {
     html.classList.remove("dark");
     localStorage.setItem("theme", "light");
+    
+    // Make sure to explicitly handle both icons
     moonIcon.classList.remove("hidden");
     sunIcon.classList.add("hidden");
   }
 }
 
-// On load
-const savedTheme = localStorage.getItem("theme");
-if (
-  savedTheme === "dark" ||
-  (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  setTheme("dark");
-} else {
-  setTheme("light");
-}
+// On load - Fixed to ensure icons are properly set on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem("theme");
+  if (
+    savedTheme === "dark" ||
+    (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    setTheme("dark");
+  } else {
+    setTheme("light");
+  }
+});
 
+// Ensure theme toggle button works
 themeToggle.addEventListener("click", () => {
   setTheme(html.classList.contains("dark") ? "light" : "dark");
 });
@@ -164,4 +171,80 @@ backToTopButton.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   });
+});
+
+
+// Projects filtering functionality - With smoother animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the "View All Projects" button
+  const viewAllProjectsBtn = document.querySelector('.view-all-projects-btn');
+  
+  if (viewAllProjectsBtn) {
+    // Set initial button state
+    viewAllProjectsBtn.setAttribute('href', '#projects');
+    viewAllProjectsBtn.setAttribute('data-showing-all', 'false');
+    
+    // Get the projects container
+    const projectsGrid = document.querySelector('.projects-grid');
+    
+    // Create the animation handler
+    viewAllProjectsBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      // Get all project cards
+      const projectCards = document.querySelectorAll('.project-card');
+      const isShowingAll = viewAllProjectsBtn.getAttribute('data-showing-all') === 'true';
+      
+      // Store current scroll position and container height
+      const currentScrollPosition = window.scrollY;
+      const containerHeight = projectsGrid.offsetHeight;
+      
+      if (!isShowingAll) {
+        // Toggle the container class to show all projects
+        projectsGrid.classList.add('show-all');
+        
+        // Setup a timeout to measure the new height after DOM updates
+        setTimeout(() => {
+          const newContainerHeight = projectsGrid.scrollHeight;
+          
+          // Update button with smooth fade
+          viewAllProjectsBtn.style.opacity = '0';
+          setTimeout(() => {
+            viewAllProjectsBtn.innerHTML = '<i class="fas fa-chevron-up mr-2"></i> Show Less';
+            viewAllProjectsBtn.style.opacity = '1';
+          }, 200);
+          viewAllProjectsBtn.setAttribute('data-showing-all', 'true');
+          
+          // Smooth scroll to show newly visible content if needed
+          const bottomOfContainer = projectsGrid.getBoundingClientRect().bottom;
+          if (bottomOfContainer > window.innerHeight) {
+            // Calculate a nice scroll position that shows enough new content
+            const scrollTo = currentScrollPosition + (newContainerHeight - containerHeight) * 0.6;
+            window.scrollTo({
+              top: scrollTo,
+              behavior: 'smooth'  // Use smooth scroll like other sections
+            });
+          }
+        }, 50); // Small delay to let the DOM update
+        
+      } else {
+        // Toggle container class to hide projects
+        projectsGrid.classList.remove('show-all');
+        
+        // Update button with smooth fade
+        viewAllProjectsBtn.style.opacity = '0';
+        setTimeout(() => {
+          viewAllProjectsBtn.innerHTML = '<i class="fab fa-github mr-2"></i> View All Projects';
+          viewAllProjectsBtn.style.opacity = '1';
+        }, 200);
+        viewAllProjectsBtn.setAttribute('data-showing-all', 'false');
+        
+        // Ensure we don't jump when hiding content
+        window.scrollTo({
+          top: Math.min(currentScrollPosition, projectsGrid.offsetTop - 100),
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
 });

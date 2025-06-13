@@ -32,6 +32,11 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* Add smooth transitions for project visibility */
+.project-card {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 .project-card:hover,
 .experience-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -41,6 +46,27 @@ body {
 .dark .project-card:hover,
 .dark .experience-card:hover {
   box-shadow: 0 20px 25px rgba(255, 255, 255, 0.05);
+}
+
+/* Hidden state for projects */
+.project-card.hidden-project {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Visible state (explicit for animation) */
+.project-card.visible-project {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project grid container needs relative positioning */
+.projects-grid {
+  position: relative;
+  transition: height 0.5s ease-in-out;
 }
 
 .timeline-item:not(:last-child)::after {
@@ -294,4 +320,54 @@ footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Hide projects after the third one by default */
+.project-card:nth-child(n+4) {
+  opacity: 0;
+  transform: translateY(40px);
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Fix for project card rounded corners */
+.project-card {
+  overflow: hidden;
+  border-radius: 0.75rem; /* This is what rounded-xl provides */
+}
+
+.project-card > div:first-child {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Ensure images don't overflow */
+.project-card .h-48 img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Fix for project 4 hover animation */
+.projects-grid.show-all .project-card:nth-child(n+4) {
+  opacity: 1;
+  transform: translateY(0) scale(1); /* Added scale(1) to match initial state of other cards */
+  height: auto;
+  margin: inherit;
+  pointer-events: auto;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  /* Reset the animation properties to match other cards */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+/* Make sure the hover effect is properly applied to ALL project cards */
+.projects-grid.show-all .project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .projects-grid.show-all .project-card:hover {
+  box-shadow: 0 20px 25px rgba(255, 255, 255, 0.05);
 }

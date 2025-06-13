@@ -952,7 +952,7 @@
           Featured <span class="gradient-text">Projects</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
           <!-- Project 1 -->
           <div
             class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg"
@@ -1121,12 +1121,76 @@
               </div>
             </div>
           </div>
+        
+
+          <!-- Project 4 -->
+          <div
+            class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                src="./Resources/Images/Projects/production-kpi-website.png"
+                alt="KPI Website"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  KPI Website
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                 A KPI website that provides real-time production data visualization for manufacturing plants. 
+                 It loops through all the images available in the respective directory and displays them in website.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
+                  >HTML</span
+                >
+
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
+                  >Tailwind CSS</span
+                >
+
+                <span
+                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full"
+                  >JavaScript</span
+                >
+                 
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                >
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="https://github.com/shrestha-sachin/carousel-website"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
+                >
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional projects (initially hidden) -->
+        <div class="project-card additional-project hidden bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+          <!-- Project content -->
         </div>
 
         <div class="text-center mt-12">
           <a
             href="#"
-            class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
+            class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
           >
             <i class="fab fa-github mr-2"></i> View All Projects
           </a>
