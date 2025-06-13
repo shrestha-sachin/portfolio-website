@@ -4,7 +4,11 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://sachinshrestha.com', 'sachinshrestha.com', 'http://localhost:3000'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 
 // API endpoint to proxy Azure OpenAI requests
@@ -42,6 +46,7 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
+// Make sure your server.js listens on the port Azure provides
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -13,7 +13,7 @@ class AzureAIChatbot {
                 messages: [
                     {
                         role: 'assistant',
-                        content: "Hello! I'm SacAI, your personal assistant. How can I help you today?",
+                        content: "Hello! I'm SacAI. How can I help you today?",
                         timestamp: new Date()
                     }
                 ]
@@ -22,7 +22,7 @@ class AzureAIChatbot {
                 messages: [
                     {
                         role: 'assistant',
-                        content: "Hello! I'm SacAI, your personal assistant. How can I help you today?",
+                        content: "Hello! I'm SacAI. How can I help you today?",
                         timestamp: new Date()
                     }
                 ]

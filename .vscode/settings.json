@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9d34cd13-fc3d-4b77-adc2-550b39cd84ef/resourceGroups/portfolio-resources/providers/Microsoft.Web/sites/sachin-portfolio-api",
+    "appService.deploySubpath": "."
+}
