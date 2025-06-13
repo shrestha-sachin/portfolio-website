@@ -46,6 +46,17 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
+// Add a root route handler
+app.get('/', (req, res) => {
+  res.json({
+    status: 'API is running',
+    endpoints: {
+      chat: '/api/chat',
+      health: '/health'
+    }
+  });
+});
+
 // Make sure your server.js listens on the port Azure provides
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
