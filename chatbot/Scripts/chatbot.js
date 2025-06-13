@@ -619,7 +619,7 @@ class AzureAIChatbot {
     /* Azure AI Integration Methods */
     
     async getAzureAIResponse(chatId, message) {
-        // Prepare conversation history for Azure AI
+        // Prepare conversation history
         const conversationHistory = this.conversations[chatId].messages
             .filter(msg => msg.role === 'user' || msg.role === 'assistant' || msg.role === 'system')
             .map(msg => ({
@@ -628,8 +628,8 @@ class AzureAIChatbot {
             }));
             
         try {
-            // Call your backend API instead of Azure directly
-            const response = await fetch('http://localhost:3000/api/chat', {
+            // Use your Azure App Service URL
+            const response = await fetch('https://sachin-portfolio-api-bwf4bde4bmaxcefc.eastus-01.azurewebsites.net/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -645,13 +645,7 @@ class AzureAIChatbot {
             return data.choices[0].message.content;
         } catch (error) {
             console.error('Error getting AI response:', error);
-            
-            // Fallback responses in case of error
-            if (message.toLowerCase().includes('azure')) {
-                return "Azure offers a comprehensive set of cloud services for building, deploying, and managing applications. Is there something specific about Azure you'd like to know?";
-            } else {
-                return "I'm sorry, I'm having trouble connecting right now. Can you please try again later?";
-            }
+            return "I'm sorry, I'm having trouble connecting right now. Please try again later.";
         }
     }
 }
