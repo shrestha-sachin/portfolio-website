@@ -481,6 +481,15 @@
   .chat-send-btn i {
     font-size: 16px;
   }
+  
+  /* Hide floating chat elements on mobile */
+  .chat-widget-trigger {
+    display: none !important;
+  }
+  
+  .chat-widget {
+    display: none !important;
+  }
 }
 
 /* Very small screens */
