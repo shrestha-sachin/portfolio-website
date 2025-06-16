@@ -112,6 +112,7 @@
               <a href="#experience" class="nav-link">Experience</a>
               <a href="#education" class="nav-link">Education</a>
               <a href="#projects" class="nav-link">Projects</a>
+              <a href="#videos" class="nav-link">Videos</a>
               <a href="#chatbot" class="nav-link">SacAI</a>
               <a href="#contact" class="nav-link">Contact</a>
             </nav>
@@ -181,6 +182,11 @@
             href="#contact"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
             >Contact</a
+          >
+          <a
+            href="#videos"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >Videos</a
           >
         </div>
       </div>
@@ -1064,256 +1070,547 @@
 
     <!-- Projects Section - Dark -->
     <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="container mx-auto px-4 sm:px-6"> <!-- Changed from px-6 to px-4 sm:px-6 for consistency -->
-        <h2 class="text-3xl font-bold text-center mb-12">
+      <div class="container mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">
           Featured <span class="gradient-text">Projects</span>
         </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
-          <!-- Project 1 -->
-          <div
-            class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
-          >
-            <div class="h-48 overflow-hidden relative">
-              <img
-                src="./Resources/Images/Projects/plc-monitoring-system.png"
-                alt="PLC Monitoring System"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 p-4">
-                <h3 class="text-xl font-bold text-white">
-                  PLC Monitoring System
-                </h3>
-              </div>
-            </div>
-            <div class="p-6">
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                A Flask web app for real-time PLC monitoring, integrating Allen-Bradley ControlLogix/SLC500 
-                systems via pylogix/pycomm3 to collect data with 99.9% accuracy. It has Python backend, enabling live data 
-                visualization that reduced equipment downtime 40% for plant operators.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
-                  >Flask</span
-                >
-                <span
-                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full"
-                  >Python</span
-                >
-                <span
-                  class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full"
-                  >SQLite</span
-                >
-                <span
-                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
-                  >Plotly</span
-                >
-                <span
-                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
-                  >IIS</span
-                >
-                
-              </div>
-              <div class="flex space-x-3">
-                <a
-                  href="https://silolevels.akcrust.com/"
-                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
-                >
-                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
-                >
-                  <i class="fab fa-github mr-1"></i> Source Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div
-            class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
-          >
-            <div class="h-48 overflow-hidden relative">
-              <img
-                src="./Resources/Images/Projects/ai-agent.png"
-                alt="IT Help Desk AI Agent"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 p-4">
-                <h3 class="text-xl font-bold text-white">
-                  IT Help Desk AI Agent
-                </h3>
-              </div>
-            </div>
-            <div class="p-6">
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                IT Help Desk agent using Microsoft Copilot Studio to automate ticket
-                handling, troubleshooting, and employee support tasks. It reduced manual workload by 
-                implementing dynamic agent flows that handle password resets, device setup
-                instructions, and common FAQs with minimal human intervention.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full"
-                  >Azure AI Foundry</span
-                >
-                <span
-                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
-                  >Copilot Studio</span
-                >
-                
-              </div>
-              <div class="flex space-x-3">
-                <a
-                  href="#"
-                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
-                >
-                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
-                >
-                  <i class="fab fa-github mr-1"></i> Source Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div
-            class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
-          >
-            <div class="h-48 overflow-hidden relative">
-              <img
-                src="./Resources/Images/Projects/language-translator.png"
-                alt="Language Translator"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 p-4">
-                <h3 class="text-xl font-bold text-white">
-                  Language Translator
-                </h3>
-              </div>
-            </div>
-            <div class="p-6">
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                 A language translator project that allows users to translate text to different languages, detect 
-                 the language of a given text, view translation history, and edit saved translations. 
-                 It integrates the Google Translate API for language translation and provides 
-                 a command-line interface for user interaction. 
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
-                  >Python</span
-                >
-                 
-              </div>
-              <div class="flex space-x-3">
-                <a
-                  href="https://www.youtube.com/watch?v=Ezjd3myC9ZA"
-                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
-                >
-                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                </a>
-                <a
-                  href="https://github.com/shrestha-sachin/Language-Translator"
-                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
-                >
-                  <i class="fab fa-github mr-1"></i> Source Code
-                </a>
-              </div>
-            </div>
-          </div>
         
+        <!-- Project Category Tabs -->
+        <div class="project-tabs flex flex-wrap justify-center mb-10">
+          <button class="project-tab-btn active" data-category="webapps">
+            <i class="fas fa-laptop-code mr-2"></i>Web Apps/Software
+          </button>
+          <button class="project-tab-btn" data-category="graphics">
+            <i class="fas fa-palette mr-2"></i>Graphic Design
+          </button>
+          <button class="project-tab-btn" data-category="art">
+            <i class="fas fa-paint-brush mr-2"></i>Sketches/Painting
+          </button>
+        </div>
 
-          <!-- Project 4 -->
-          <div
-            class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
-          >
-            <div class="h-48 overflow-hidden relative">
-              <img
-                src="./Resources/Images/Projects/production-kpi-website.png"
-                alt="KPI Website"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 p-4">
-                <h3 class="text-xl font-bold text-white">
-                  KPI Website
-                </h3>
+        <!-- Web Apps/Software Projects -->
+        <div class="project-category active" id="category-webapps">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
+            <!-- Keep your existing project cards here -->
+            <!-- Project 1 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  src="./Resources/Images/Projects/plc-monitoring-system.png"
+                  alt="PLC Monitoring System"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                ></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">
+                    PLC Monitoring System
+                  </h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  A Flask web app for real-time PLC monitoring, integrating Allen-Bradley ControlLogix/SLC500 
+                  systems via pylogix/pycomm3 to collect data with 99.9% accuracy. It has Python backend, enabling live data 
+                  visualization that reduced equipment downtime 40% for plant operators.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
+                    >Flask</span
+                  >
+                  <span
+                    class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full"
+                    >Python</span
+                  >
+                  <span
+                    class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full"
+                    >SQLite</span
+                  >
+                  <span
+                    class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
+                    >Plotly</span
+                  >
+                  <span
+                    class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
+                    >IIS</span
+                  >
+                  
+                </div>
+                <div class="flex space-x-3">
+                  <a
+                    href="https://silolevels.akcrust.com/"
+                    class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                  >
+                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                  </a>
+                  <a
+                    href="#"
+                    class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
+                  >
+                    <i class="fab fa-github mr-1"></i> Source Code
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="p-6">
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                 A KPI website that provides real-time production data visualization for manufacturing plants. 
-                 It loops through all the images available in the respective directory and displays them in website.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
-                  >HTML</span
-                >
 
-                <span
-                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
-                  >Tailwind CSS</span
-                >
-
-                <span
-                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full"
-                  >JavaScript</span
-                >
-                 
+            <!-- Project 2 -->
+            <div
+              class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  src="./Resources/Images/Projects/ai-agent.png"
+                  alt="IT Help Desk AI Agent"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                ></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">
+                    IT Help Desk AI Agent
+                  </h3>
+                </div>
               </div>
-              <div class="flex space-x-3">
-                <a
-                  href="#"
-                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
-                >
-                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                </a>
-                <a
-                  href="https://github.com/shrestha-sachin/carousel-website"
-                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
-                >
-                  <i class="fab fa-github mr-1"></i> Source Code
-                </a>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  IT Help Desk agent using Microsoft Copilot Studio to automate ticket
+                  handling, troubleshooting, and employee support tasks. It reduced manual workload by 
+                  implementing dynamic agent flows that handle password resets, device setup
+                  instructions, and common FAQs with minimal human intervention.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full"
+                    >Azure AI Foundry</span
+                  >
+                  <span
+                    class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
+                    >Copilot Studio</span
+                  >
+                  
+                </div>
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                  >
+                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                  </a>
+                  <a
+                    href="#"
+                    class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
+                  >
+                    <i class="fab fa-github mr-1"></i> Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div
+              class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  src="./Resources/Images/Projects/language-translator.png"
+                  alt="Language Translator"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                ></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">
+                    Language Translator
+                  </h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                   A language translator project that allows users to translate text to different languages, detect 
+                   the language of a given text, view translation history, and edit saved translations. 
+                   It integrates the Google Translate API for language translation and provides 
+                   a command-line interface for user interaction. 
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
+                    >Python</span
+                  >
+                   
+                </div>
+                <div class="flex space-x-3">
+                  <a
+                    href="https://www.youtube.com/watch?v=Ezjd3myC9ZA"
+                    class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                  >
+                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/shrestha-sachin/Language-Translator"
+                    class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
+                  >
+                    <i class="fab fa-github mr-1"></i> Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- Project 4 -->
+            <div
+              class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  src="./Resources/Images/Projects/production-kpi-website.png"
+                  alt="KPI Website"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                ></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">
+                    KPI Website
+                  </h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                   A KPI website that provides real-time production data visualization for manufacturing plants. 
+                   It loops through all the images available in the respective directory and displays them in website.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full"
+                    >HTML</span
+                  >
+
+                  <span
+                    class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full"
+                    >Tailwind CSS</span
+                  >
+
+                  <span
+                    class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full"
+                    >JavaScript</span
+                  >
+                   
+                </div>
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                  >
+                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/shrestha-sachin/carousel-website"
+                    class="text-gray-600 dark:text-gray-400 hover:underline flex items-center"
+                  >
+                    <i class="fab fa-github mr-1"></i> Source Code
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+          
+          <div class="text-center mt-12">
+            <button type="button" class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow" data-category-name="Web Apps/Software">
+              <i class="fab fa-github mr-2"></i> View All Web Projects
+            </button>
+          </div>
         </div>
 
-        <!-- Additional projects (initially hidden) -->
-        <div class="project-card additional-project hidden bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
-          <!-- Project content -->
+        <!-- Graphic Design Projects -->
+        <div class="project-category hidden" id="category-graphics">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
+            <!-- Graphic Design Project 1 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/graphic-design-1.jpg" alt="Logo Design" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Logo Design</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Brand identity design for a tech startup, focusing on modern minimalist approach with scalable vector graphics.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Adobe Illustrator</span>
+                  <span class="text-xs px-2 py-1 bg-pink-100 dark:bg-pink-900/50 text-pink-800 dark:text-pink-200 rounded-full">Logo Design</span>
+                  <span class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">Branding</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Larger
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graphic Design Project 2 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/graphic-design-2.jpg" alt="Social Media Campaign" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Social Media Campaign</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Designed a cohesive social media campaign with 12 posts for a fitness brand, improving engagement by 45%.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Photoshop</span>
+                  <span class="text-xs px-2 py-1 bg-pink-100 dark:bg-pink-900/50 text-pink-800 dark:text-pink-200 rounded-full">Social Media</span>
+                  <span class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full">Canva</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Gallery
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graphic Design Project 3 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/graphic-design-3.jpg" alt="Event Poster" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Event Poster Design</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Created promotional materials including posters and digital banners for a campus tech event that attracted over 500 attendees.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Illustrator</span>
+                  <span class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Print Design</span>
+                  <span class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">Digital Marketing</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Design
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-12">
+            <a href="javascript:void(0);" class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow" data-category-name="Graphic Design">
+              <i class="fas fa-images mr-2"></i> View All Design Work
+            </a>
+          </div>
         </div>
 
-        <div class="text-center mt-12">
-          <a
-            href="#"
-            class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
-          >
-            <i class="fab fa-github mr-2"></i> View All Projects
-          </a>
+        <!-- Sketches/Painting Projects -->
+        <div class="project-category hidden" id="category-art">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
+            <!-- Art Project 1 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/art-1.jpg" alt="Portrait Sketch" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Portrait Sketch</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Detailed pencil portrait sketch using graphite and charcoal techniques to capture depth and expression.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/50 text-gray-800 dark:text-gray-200 rounded-full">Pencil</span>
+                  <span class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full">Charcoal</span>
+                  <span class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">Portrait</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Full Size
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art Project 2 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/art-2.jpg" alt="Watercolor Landscape" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Watercolor Landscape</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Mountain landscape painted with watercolors, experimenting with light and atmospheric perspective techniques.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Watercolor</span>
+                  <span class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">Landscape</span>
+                  <span class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Mixed Media</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Artwork
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art Project 3 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+              <div class="h-48 overflow-hidden relative">
+                <img src="./Resources/Images/Projects/art-3.jpg" alt="Digital Art" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-4">
+                  <h3 class="text-xl font-bold text-white">Digital Art Illustration</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Digital illustration created in Procreate exploring abstract concepts and vibrant color theory applications.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs px-2 py-1 bg-pink-100 dark:bg-pink-900/50 text-pink-800 dark:text-pink-200 rounded-full">Procreate</span>
+                  <span class="text-xs px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 rounded-full">Digital Art</span>
+                  <span class="text-xs px-2 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-200 rounded-full">Illustration</span>
+                </div>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1"></i> View Artwork
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-12">
+            <a href="javascript:void(0);" class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow" data-category-name="Sketches/Painting">
+              <i class="fas fa-paint-brush mr-2"></i> View All Artwork
+            </a>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Videos Section -->
+<section id="videos" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">
+      Watch My <span class="gradient-text">Videos</span>
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Video 1 -->
+      <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe 
+            src="https://www.youtube.com/embed/Ezjd3myC9ZA" 
+            title="Language Translator Demo" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 dark:text-white">Language Translator Demo</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A walkthrough of my language translation application showing key features and functionality.
+          </p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              <i class="far fa-calendar-alt mr-1"></i> Jun 15, 2023
+            </span>
+            <a href="https://www.youtube.com/watch?v=Ezjd3myC9ZA" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+              <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Video 2 - Add your actual videos here -->
+      <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe 
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
+            title="Programming Tutorial" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 dark:text-white">Programming Tutorial</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Learn how to build a simple web application using modern frameworks and best practices.
+          </p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              <i class="far fa-calendar-alt mr-1"></i> Apr 22, 2023
+            </span>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_HERE" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+              <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Video 3 - Add your actual videos here -->
+      <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe 
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
+            title="Project Overview" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 dark:text-white">Project Overview</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Walkthrough of my latest project including architecture decisions and implementation details.
+          </p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              <i class="far fa-calendar-alt mr-1"></i> Mar 15, 2023
+            </span>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_HERE" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+              <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- More Videos Button -->
+    <div class="text-center mt-12">
+      <a 
+        href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" 
+        target="_blank"
+        class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
+      >
+        <i class="fab fa-youtube mr-2"></i> View All Videos
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Chatbot Section -->
     <section id="chatbot" class="py-20 bg-white dark:bg-gray-900">
@@ -1391,7 +1688,7 @@
           <div class="tool-button" title="Voice input" id="float-voice-btn">
             <i class="fas fa-microphone"></i>
           </div>
-          <div class="tool-button close-widget" title="Close chat">
+          <div class="tool-button" title="Close chat">
             <i class="fas fa-times"></i>
           </div>
         </div>
@@ -1704,6 +2001,13 @@
                   href="#contact"
                   class="text-gray-400 hover:text-white transition"
                   >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#videos"
+                  class="text-gray-400 hover:text-white transition"
+                  >Videos</a
                 >
               </li>
             </ul>

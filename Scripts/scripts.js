@@ -173,78 +173,143 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
+// =========================================
+// PROJECT TABS AND VIEW ALL FUNCTIONALITY
+// =========================================
 
-// Projects filtering functionality - With smoother animations
-document.addEventListener('DOMContentLoaded', function() {
-  // Get the "View All Projects" button
-  const viewAllProjectsBtn = document.querySelector('.view-all-projects-btn');
+// Step 1: Set up the project tabs functionality
+const projectTabs = document.querySelectorAll('.project-tab-btn');
+const projectCategories = document.querySelectorAll('.project-category');
+
+if (projectTabs.length > 0 && projectCategories.length > 0) {
+  // Tab click handler
+  projectTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const category = tab.getAttribute('data-category');
+      
+      // Update active tab
+      projectTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      
+      // Show selected category
+      projectCategories.forEach(cat => {
+        if (cat.id === `category-${category}`) {
+          cat.classList.add('active');
+        } else {
+          cat.classList.remove('active');
+        }
+      });
+      
+      // Store selected tab in localStorage for persistence
+      localStorage.setItem('selectedProjectTab', category);
+    });
+  });
   
-  if (viewAllProjectsBtn) {
-    // Set initial button state
-    viewAllProjectsBtn.setAttribute('href', '#projects');
-    viewAllProjectsBtn.setAttribute('data-showing-all', 'false');
+  // Check if there's a saved tab preference
+  const savedTab = localStorage.getItem('selectedProjectTab');
+  if (savedTab) {
+    const tabToActivate = document.querySelector(`.project-tab-btn[data-category="${savedTab}"]`);
+    if (tabToActivate) {
+      tabToActivate.click();
+    }
+  }
+
+  // Step 2: Fix the "View All" buttons functionality
+  // First, save category names for better button labeling
+  projectTabs.forEach(btn => {
+    const category = btn.getAttribute('data-category');
+    const categoryName = btn.textContent.trim();
+    const viewButton = document.querySelector(`#category-${category} .view-all-projects-btn`);
+    if (viewButton) {
+      viewButton.setAttribute('data-category-name', categoryName);
+    }
+  });
+}
+
+// Step 3: The single, correct implementation of View All/Show Less buttons
+const viewAllButtons = document.querySelectorAll('.view-all-projects-btn');
+
+if (viewAllButtons.length > 0) {
+  console.log("Setting up View All buttons:", viewAllButtons.length, "found");
+  
+  viewAllButtons.forEach(button => {
+    // IMPORTANT: Remove any href attribute completely to prevent navigation
+    button.removeAttribute('href');
     
-    // Get the projects container
-    const projectsGrid = document.querySelector('.projects-grid');
-    
-    // Create the animation handler
-    viewAllProjectsBtn.addEventListener('click', function(event) {
+    button.addEventListener('click', function(event) {
+      // Stop default link behavior immediately
       event.preventDefault();
+      event.stopPropagation();
       
-      // Get all project cards
-      const projectCards = document.querySelectorAll('.project-card');
-      const isShowingAll = viewAllProjectsBtn.getAttribute('data-showing-all') === 'true';
+      console.log("View All/Show Less button clicked");
       
-      // Store current scroll position and container height
-      const currentScrollPosition = window.scrollY;
-      const containerHeight = projectsGrid.offsetHeight;
+      const category = this.closest('.project-category');
+      const projectsGrid = category.querySelector('.projects-grid');
       
-      if (!isShowingAll) {
-        // Toggle the container class to show all projects
-        projectsGrid.classList.add('show-all');
-        
-        // Setup a timeout to measure the new height after DOM updates
-        setTimeout(() => {
-          const newContainerHeight = projectsGrid.scrollHeight;
-          
-          // Update button with smooth fade
-          viewAllProjectsBtn.style.opacity = '0';
-          setTimeout(() => {
-            viewAllProjectsBtn.innerHTML = '<i class="fas fa-chevron-up mr-2"></i> Show Less';
-            viewAllProjectsBtn.style.opacity = '1';
-          }, 200);
-          viewAllProjectsBtn.setAttribute('data-showing-all', 'true');
-          
-          // Smooth scroll to show newly visible content if needed
-          const bottomOfContainer = projectsGrid.getBoundingClientRect().bottom;
-          if (bottomOfContainer > window.innerHeight) {
-            // Calculate a nice scroll position that shows enough new content
-            const scrollTo = currentScrollPosition + (newContainerHeight - containerHeight) * 0.6;
-            window.scrollTo({
-              top: scrollTo,
-              behavior: 'smooth'  // Use smooth scroll like other sections
-            });
-          }
-        }, 50); // Small delay to let the DOM update
-        
-      } else {
-        // Toggle container class to hide projects
+      if (!projectsGrid) {
+        console.error("No projects grid found");
+        return;
+      }
+      
+      const isShowingAll = projectsGrid.classList.contains('show-all');
+      const categoryName = this.getAttribute('data-category-name') || 'Projects';
+      
+      console.log("Toggle state:", isShowingAll ? "showing all → hide some" : "hiding some → show all");
+      
+      if (isShowingAll) {
+        // HIDE extra projects
         projectsGrid.classList.remove('show-all');
         
-        // Update button with smooth fade
-        viewAllProjectsBtn.style.opacity = '0';
-        setTimeout(() => {
-          viewAllProjectsBtn.innerHTML = '<i class="fab fa-github mr-2"></i> View All Projects';
-          viewAllProjectsBtn.style.opacity = '1';
-        }, 200);
-        viewAllProjectsBtn.setAttribute('data-showing-all', 'false');
+        // Get the right icon based on category
+        const iconClass = 
+          categoryName.includes("Web") ? "fab fa-github" : 
+          categoryName.includes("Design") ? "fas fa-images" : 
+          categoryName.includes("Art") ? "fas fa-paint-brush" : 
+          "fab fa-github";
         
-        // Ensure we don't jump when hiding content
-        window.scrollTo({
-          top: Math.min(currentScrollPosition, projectsGrid.offsetTop - 100),
-          behavior: 'smooth'
-        });
+        // Update button text
+        this.innerHTML = `<i class="${iconClass} mr-2"></i> View All ${categoryName}`;
+        
+      } else {
+        // SHOW all projects
+        projectsGrid.classList.add('show-all');
+        
+        // Update button text
+        this.innerHTML = '<i class="fas fa-chevron-up mr-2"></i> Show Less';
+      }
+      
+      // Prevent any further event propagation
+      return false;
+    });
+  });
+}
+
+// Video lazy loading
+const videoIframes = document.querySelectorAll('iframe');
+if (videoIframes.length > 0) {
+  const observerOptions = {
+    rootMargin: '100px',
+    threshold: 0.1
+  };
+  
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const iframe = entry.target;
+        const src = iframe.getAttribute('data-src');
+        if (src) {
+          iframe.setAttribute('src', src);
+          iframe.removeAttribute('data-src');
+          videoObserver.unobserve(iframe);
+        }
       }
     });
-  }
-});
+  }, observerOptions);
+  
+  videoIframes.forEach(iframe => {
+    // Only observe iframes with data-src attribute
+    if (iframe.getAttribute('data-src')) {
+      videoObserver.observe(iframe);
+    }
+  });
+}
