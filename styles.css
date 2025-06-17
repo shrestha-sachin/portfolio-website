@@ -488,3 +488,122 @@ footer .container {
   height: 100%;
   border: 0;
 }
+
+/* Image Lightbox Styles */
+#image-lightbox {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#image-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#image-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+}
+
+#image-container:active {
+  cursor: grabbing;
+}
+
+#lightbox-image {
+  transform-origin: center;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.lightbox-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Add pulse animation to the download button */
+@keyframes pulse-download {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.download-image:hover {
+  animation: pulse-download 1s ease infinite;
+}
+
+/* Certificate Carousel Styles */
+.certificate-carousel {
+  position: relative;
+  height: 400px;
+  background-color: #f8f9fa;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.dark .certificate-carousel {
+  background-color: #1f2937;
+}
+
+.certificates-container {
+  display: flex;
+  height: 100%;
+}
+
+.certificate-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.certificate-slide.active {
+  opacity: 1;
+}
+
+.certificate-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.certificate-indicator.active {
+  width: 24px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Zoom in effect when changing slides */
+.certificate-slide img {
+  transition: transform 0.5s ease;
+}
+
+.certificate-slide.entering img {
+  transform: scale(0.95);
+}
+
+.certificate-slide.active img {
+  transform: scale(1);
+}
