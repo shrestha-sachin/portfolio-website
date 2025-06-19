@@ -81,6 +81,78 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Zoom functionality
+  if (zoomInButton) {
+    zoomInButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (currentZoom < 3) { // Max zoom: 300%
+        currentZoom += 0.25;
+        updateZoom();
+      }
+    });
+  }
+  
+  if (zoomOutButton) {
+    zoomOutButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (currentZoom > 0.5) { // Min zoom: 50%
+        currentZoom -= 0.25;
+        updateZoom();
+      }
+    });
+  }
+  
+  function updateZoom() {
+    updateImageTransform();
+    if (zoomLevelDisplay) {
+      zoomLevelDisplay.textContent = Math.round(currentZoom * 100) + '%';
+    }
+  }
+  
+  // Fix download functionality
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Get current image source and title
+      const imgSrc = lightboxImage.getAttribute('src');
+      const imgTitle = lightboxTitle.textContent || 'download-image';
+      
+      // Create a temporary link to trigger the download
+      const link = document.createElement('a');
+      link.href = imgSrc;
+      link.download = imgTitle.toLowerCase().replace(/\s+/g, '-') + '.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Add visual feedback
+      this.innerHTML = '<i class="fas fa-check text-xl"></i>';
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-download text-xl"></i>';
+      }, 1000);
+    });
+  }
+
+  // Close lightbox
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeLightbox();
+    }
+  });
+  
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    setTimeout(() => {
+      lightbox.classList.add('hidden');
+    }, 300);
+    document.body.style.overflow = '';
+  }
+  
+  // Zoom functionality
   zoomInButton.addEventListener('click', function() {
     if (currentZoom < 3) { // Max zoom: 300%
       currentZoom += 0.25;
@@ -158,7 +230,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function updateImageTransform() {
-    lightboxImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    if (lightboxImage) {
+      lightboxImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
   }
   
   // Keyboard controls
