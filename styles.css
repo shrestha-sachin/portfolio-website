@@ -783,6 +783,16 @@ body::before {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
+/* Hide extra projects by default */
+.gallery-item.hidden-project {
+  display: none;
+}
+
+/* Show hidden projects when 'show-all' class is added */
+.projects-grid.show-all .gallery-item.hidden-project {
+  display: block;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .carousel-container {
