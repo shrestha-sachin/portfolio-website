@@ -379,6 +379,24 @@ body::before {
 
 /* Add at the end of your CSS file */
 
+/* Cursor trail animation styles */
+#cursor-trail-container {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cursor-trail-dot {
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+/* Dark mode support for cursor trail */
+.dark .cursor-trail-dot {
+  background: rgba(139, 92, 246, 0.8);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+
 /* Project tabs styling */
 .project-tabs {
   display: flex;

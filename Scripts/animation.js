@@ -211,6 +211,156 @@ function setupNetworkAnimation(canvas, container) {
   };
 }
 
+// Cursor trail animation with dots
+function createCursorTrail() {
+  const trail = [];
+  const trailLength = 15; // Number of dots in the trail
+  let mouseX = 0;
+  let mouseY = 0;
+  let isMouseMoving = false;
+  let animationFrameId = null;
+  
+  // Create container for cursor trail
+  const trailContainer = document.createElement('div');
+  trailContainer.id = 'cursor-trail-container';
+  trailContainer.style.position = 'fixed';
+  trailContainer.style.top = '0';
+  trailContainer.style.left = '0';
+  trailContainer.style.width = '100vw';
+  trailContainer.style.height = '100vh';
+  trailContainer.style.pointerEvents = 'none';
+  trailContainer.style.zIndex = '9999'; // Above all content
+  document.body.appendChild(trailContainer);
+  
+  // Function to get colors based on theme
+  function getTrailColors() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      return {
+        background: 'rgba(139, 92, 246, 0.8)',
+        shadow: 'rgba(139, 92, 246, 0.6)'
+      };
+    }
+    return {
+      background: 'rgba(99, 102, 241, 0.8)',
+      shadow: 'rgba(99, 102, 241, 0.6)'
+    };
+  }
+  
+  // Initialize trail dots
+  for (let i = 0; i < trailLength; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-trail-dot';
+    const colors = getTrailColors();
+    dot.style.position = 'absolute';
+    dot.style.width = `${8 - (i * 0.4)}px`;
+    dot.style.height = `${8 - (i * 0.4)}px`;
+    dot.style.borderRadius = '50%';
+    dot.style.background = colors.background;
+    dot.style.boxShadow = `0 0 10px ${colors.shadow}`;
+    dot.style.transform = 'translate(-50%, -50%)';
+    dot.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    dot.style.opacity = '0';
+    dot.style.willChange = 'transform, opacity';
+    trailContainer.appendChild(dot);
+    trail.push({
+      element: dot,
+      x: 0,
+      y: 0,
+      targetX: 0,
+      targetY: 0
+    });
+  }
+  
+  // Update colors when theme changes
+  const observer = new MutationObserver(() => {
+    const colors = getTrailColors();
+    trail.forEach((dot, index) => {
+      dot.element.style.background = colors.background;
+      const glowIntensity = 0.6 - (index / trailLength) * 0.5;
+      dot.element.style.boxShadow = `0 0 ${8 + index * 2}px ${colors.shadow.replace('0.6', glowIntensity.toString())}`;
+    });
+  });
+  
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+  
+  // Update trail animation
+  function updateTrail() {
+    if (!isMouseMoving) {
+      // Fade out all dots when mouse stops
+      trail.forEach((dot, index) => {
+        dot.element.style.opacity = '0';
+      });
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      return;
+    }
+    
+    // Update each dot's position with easing
+    trail.forEach((dot, index) => {
+      const leader = index === 0 ? { x: mouseX, y: mouseY } : trail[index - 1];
+      const easing = 0.15 + (index * 0.05); // More spacing for later dots
+      
+      dot.targetX = leader.x;
+      dot.targetY = leader.y;
+      
+      // Smooth interpolation
+      dot.x += (dot.targetX - dot.x) * easing;
+      dot.y += (dot.targetY - dot.y) * easing;
+      
+      // Update position and opacity
+      const opacity = 1 - (index / trailLength) * 0.8; // Fade out along trail
+      dot.element.style.left = `${dot.x}px`;
+      dot.element.style.top = `${dot.y}px`;
+      dot.element.style.opacity = opacity.toString();
+      
+      // Add glow effect that decreases along trail
+      const colors = getTrailColors();
+      const glowIntensity = 0.6 - (index / trailLength) * 0.5;
+      const shadowColor = colors.shadow.replace('0.6', glowIntensity.toString());
+      dot.element.style.boxShadow = `0 0 ${8 + index * 2}px ${shadowColor}`;
+    });
+    
+    animationFrameId = requestAnimationFrame(updateTrail);
+  }
+  
+  // Mouse move handler
+  let mouseMoveTimer;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseMoving = true;
+    
+    // Start animation if not already running
+    if (!animationFrameId) {
+      updateTrail();
+    }
+    
+    // Clear existing timer
+    clearTimeout(mouseMoveTimer);
+    
+    // Stop animation after mouse stops moving for 100ms
+    mouseMoveTimer = setTimeout(() => {
+      isMouseMoving = false;
+    }, 100);
+  });
+  
+  // Clean up on page unload
+  window.addEventListener('beforeunload', () => {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+    }
+    if (trailContainer && trailContainer.parentNode) {
+      trailContainer.parentNode.removeChild(trailContainer);
+    }
+  });
+}
+
 // Initialize animation
 function initializeAnimation() {
   if (!checkBrowserSupport()) {
@@ -219,6 +369,9 @@ function initializeAnimation() {
   
   // Create network animation on entire home page
   createNetworkAnimation();
+  
+  // Create cursor trail animation
+  createCursorTrail();
   
   // No debug element - removed
 }
