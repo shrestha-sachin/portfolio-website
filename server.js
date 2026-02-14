@@ -15,7 +15,7 @@ app.use(express.json());
 app.post('/api/chat', async (req, res) => {
   try {
     const { messages } = req.body;
-    
+
     // Add system message with information about yourself
     const systemMessage = {
       role: "system",
@@ -87,10 +87,10 @@ app.post('/api/chat', async (req, res) => {
       literacy and streamline administrative workflows.
       `
     };
-    
+
     // Prepend system message to conversation
     const fullMessages = [systemMessage, ...messages];
-    
+
     const response = await axios.post(
       `${process.env.AZURE_OPENAI_ENDPOINT}/openai/deployments/${process.env.AZURE_OPENAI_DEPLOYMENT}/chat/completions?api-version=${process.env.AZURE_OPENAI_API_VERSION}`,
       {
@@ -108,7 +108,7 @@ app.post('/api/chat', async (req, res) => {
         }
       }
     );
-    
+
     res.json(response.data);
   } catch (error) {
     console.error('Error calling Azure OpenAI:', error.response?.data || error.message);
