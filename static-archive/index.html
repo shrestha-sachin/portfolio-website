@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin Shrestha - Software Engineer | Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./Resources/Images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Resources/Images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Resources/Images/favicon.png">
+  <link rel="manifest" href="./Resources/Images/favicon.png">
+  <link rel="shortcut icon" href="./Resources/Images/favicon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./styles.css" rel="stylesheet" />
+  <link href="./chatbot/css/chatbot.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+    };
+  </script>
+
+  <!-- Add these inside your <head> section -->
+  <meta name="description"
+    content="Sachin Shrestha - Software Engineer and Full Stack Developer specializing in web development, AI, and cloud computing solutions. View portfolio and contact for hiring.">
+  <meta name="keywords"
+    content="Sachin Shrestha, Sachin, Software Engineer, Full Stack Developer, Web Developer, Green Bay, Wisconsin, React, Python, JavaScript">
+  <meta name="author" content="Sachin Shrestha">
+
+  <!-- Social sharing optimization -->
+  <meta property="og:title" content="Sachin Shrestha - Software Engineer | Portfolio">
+  <meta property="og:description"
+    content="Portfolio of Sachin Shrestha, a Full Stack Developer creating exceptional digital experiences and solutions.">
+  <meta property="og:image" content="./Resources/Images/profile.jpg">
+  <meta property="og:url" content="https://www.sachinshrestha.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sachin Shrestha - Software Engineer | Portfolio">
+  <meta name="twitter:description"
+    content="Portfolio of Sachin Shrestha, a Full Stack Developer creating exceptional digital experiences.">
+  <meta name="twitter:image" content="./Resources/Images/profile.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.sachinshrestha.com">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Sachin Shrestha",
+      "jobTitle": "Software Engineer",
+      "description": "Full Stack Developer/Software Engineer creating digital experiences that matter.",
+      "image": "https://www.sachinshrestha.com/PXL_20231118_232741684.PORTRAIT.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Green Bay",
+        "addressRegion": "WI",
+        "addressCountry": "USA"
+      },
+      "email": "sachinstha600@gmail.com",
+      "telephone": "+977 9862685223",
+      "url": "https://www.sachinshrestha.com",
+      "sameAs": [
+        "https://github.com/shrestha-sachin",
+        "https://www.linkedin.com/in/sachin-stha/",
+        "https://www.facebook.com/sachin.stha.26/",
+        "https://www.instagram.com/sachin_shrestha__/"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Wisconsin-Green Bay",
+          "url": "https://www.uwgb.edu/"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "The College of Idaho",
+          "url": "https://www.collegeofidaho.edu/"
+        }
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Alive & Kickin' Pizza Crust"
+      }
+    }
+    </script>
+</head>
+
+<body
+  class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden">
+  <!-- Header/Navigation -->
+  <header class="fixed w-full z-50 bg-white/80 dark:bg-gray-800 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 py-3 relative">
+      <div class="flex justify-between items-center">
+        <a href="#home" class="text-2xl font-bold gradient-text">Sachin.</a>
+
+        <div class="flex items-center space-x-2 md:space-x-6">
+          <nav class="hidden md:flex space-x-6">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#videos" class="nav-link">Videos</a>
+            <a href="#chatbot" class="nav-link">SacAI</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Theme toggle button -->
+          <button id="theme-toggle"
+            class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <i class="fas fa-moon text-lg dark:hidden"></i>
+            <i class="fas fa-sun text-lg hidden dark:block"></i>
+          </button>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button"
+            class="md:hidden w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu with right alignment -->
+      <div id="mobile-menu"
+        class="hidden md:hidden absolute right-0 top-auto mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50">
+        <a href="#home" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+        <a href="#about" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+        <a href="#skills" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Skills</a>
+        <a href="#experience" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Experience</a>
+        <a href="#education" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Education</a>
+        <a href="#projects" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+
+        <a href="#chatbot" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">SacAI</a>
+        <a href="#videos" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Videos</a>
+        <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home Section - Light -->
+  <section id="home" class="min-h-[100svh] flex items-center py-10 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="flex flex-col items-center md:flex-row md:items-center gap-4 sm:gap-6 md:gap-8">
+        <!-- Text Content -->
+        <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left px-0">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">
+            Hi, I'm <span class="gradient-text">Sachin Shrestha</span>
+          </h1>
+          <h2 id="typewriter" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-6"></h2>
+
+          <p class="text-base sm:text-lg mb-6 md:mb-8 text-gray-600 dark:text-gray-300 max-w-lg mx-auto md:mx-0">
+            I build exceptional digital experiences with modern technologies.
+            Passionate about creating solutions that make an impact.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6 md:mb-8">
+            <a href="#contact"
+              class="whitespace-nowrap px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors glow">
+              Contact Me
+            </a>
+            <a href="#projects"
+              class="whitespace-nowrap px-5 py-2.5 border-2 border-blue-500 text-blue-500 rounded-lg font-medium hover:bg-blue-50 transition-all flex items-center">
+              <i class="fas fa-eye mr-2"></i> View Work
+            </a>
+
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="https://github.com/shrestha-sachin" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-github text-gray-700 dark:text-gray-300"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sachin-stha/" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-linkedin-in text-gray-700 dark:text-gray-300"></i>
+            </a>
+            <a href="https://www.facebook.com/sachin.stha.26/" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-facebook text-gray-700 dark:text-gray-300"></i>
+            </a>
+            <a href="https://www.instagram.com/sachin_shrestha__/" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-instagram text-gray-700 dark:text-gray-300"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2 px-0">
+          <!-- Added px-0 to ensure no extra padding -->
+          <div class="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 floating">
+            <!-- Smaller image for mobile -->
+            <div
+              class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
+              <!-- Replace existing image tags with these optimized versions -->
+              <img src="./Resources/Images/profile.jpg"
+                alt="Sachin Shrestha - Software Engineer and Full Stack Developer" class="w-full h-full object-cover" />
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section - Dark -->
+  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        About <span class="gradient-text">Me</span>
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3 flex justify-center">
+          <div
+            class="w-64 h-64 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg floating">
+            <!-- Replace existing image tags with these optimized versions -->
+            <img src="./Resources/Images/profile2.jpg" alt="Sachin Shrestha - Professional Headshot"
+              class="w-full h-full object-cover" />
+
+          </div>
+        </div>
+
+        <div class="md:w-2/3">
+          <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            I'm a Computer Science student with a strong passion for software development, AI, and automation.
+            Over the past few years, I've worked on a wide range of projects — from building full-stack web applications
+            with Django and React to creating secure Python-based automation tools and mobile apps with Flutter.
+            <br><br>
+
+            With 2+ years of coding experience in Python, C, Java, JavaScript, HTML/CSS, and a background in UX and
+            graphic design,
+            I enjoy solving complex problems through clean code and thoughtful user experiences. I am currently working
+            on my own project,
+            "ApplyMate", an AI-powered college application platform, and an automation system that securely handles
+            email attachments
+            using Azure AI. <br><br>
+
+            Currently, I'm gaining hands-on experience through an IT Internship, while actively exploring new
+            technologies in AI agents, cloud systems, and smart home IoT. <br><br>
+
+            I’m always open to collaborating on innovative ideas, learning from others, and growing as a developer.
+          </p>
+
+          <!-- Replace the grid layout with separated divs -->
+          <div class="flex flex-col space-y-4 mb-8">
+            <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+              <p class="font-medium text-blue-600 dark:text-blue-400">Name:</p>
+              <p class="text-gray-600 dark:text-gray-300">Sachin Shrestha</p>
+            </div>
+
+            <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+              <p class="font-medium text-blue-600 dark:text-blue-400">From:</p>
+              <p class="text-gray-600 dark:text-gray-300">
+                Green Bay, WI, USA
+              </p>
+            </div>
+
+            <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+              <p class="font-medium text-blue-600 dark:text-blue-400">Email:</p>
+              <p class="text-gray-600 dark:text-gray-300">
+                <a href="mailto:sachinstha600@gmail.com" class="word-wrap inline-block">
+                  sachinstha600@gmail.com
+                </a>
+              </p>
+            </div>
+
+            <div class="p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg shadow-sm">
+              <p class="font-medium text-blue-600 dark:text-blue-400">Experience:</p>
+              <p class="text-gray-600 dark:text-gray-300">2+ Years</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="./Resources/Resume/Resume_Sachin.pdf" download="Sachin_Shrestha_Resume.pdf"
+              class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors glow shadow-lg flex items-center">
+              <i class="fas fa-download mr-2"></i> Download Resume
+            </a>
+            <a href="#contact"
+              class="border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-all flex items-center">
+              <i class="fas fa-paper-plane mr-2"></i> Hire Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section - Light -->
+  <section id="skills" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          My <span class="gradient-text">Skills</span>
+        </h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">
+          I've worked with a variety of technologies in the web development
+          world. Here are some of my core competencies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Frontend Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 dark:text-blue-400 text-4xl mb-4">
+              <i class="fab fa-react"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 dark:text-white">
+              Frontend Development
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              React, HTML, CSS, JavaScript, TypeScript, TailwindCSS
+            </p>
+          </div>
+        </div>
+
+        <!-- Backend Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Backend Development</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Node.js, Django, Flask, PHP, REST APIs
+            </p>
+          </div>
+        </div>
+
+        <!-- Database Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Database</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              MySQL, PostgreSQL, sqLite
+            </p>
+          </div>
+        </div>
+
+        <!-- DevOps Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">DevOps & Cloud</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Docker, AWS, GCP, CI/CD, GitHub Actions
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Mobile Development</h3>
+            <p class="text-gray-600 dark:text-gray-300">React Native</p>
+          </div>
+        </div>
+
+        <!-- UI/UX Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+            <p class="text-gray-600 dark:text-gray-300">Figma, Adobe XD</p>
+          </div>
+        </div>
+
+        <!-- Testing Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-vial"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Graphic Designing</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Adobe Photoshop, Illustrator, Canva
+            </p>
+          </div>
+        </div>
+
+        <!-- Other Skills -->
+        <div class="fade-in">
+          <div
+            class="skill-card bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer h-full">
+            <div class="text-blue-500 text-4xl mb-4">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Other Skills</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Git, SEO, Web Security, Microsoft Azure AI, Active Directory
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 fade-in">
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6">
+          <h3 class="text-xl font-semibold mb-4 text-center dark:text-white">
+            My Skills Level
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">HTML, CSS, & JavaScript</span>
+                <span class="dark:text-gray-300">80%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">Python</span>
+                <span class="dark:text-gray-300">70%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">Java</span>
+                <span class="dark:text-gray-300">60%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">React.js</span>
+                <span class="dark:text-gray-300">50%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">Node.js</span>
+                <span class="dark:text-gray-300">50%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">Flask</span>
+                <span class="dark:text-gray-300">70%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium dark:text-gray-300">UI/UX Design</span>
+                <span class="dark:text-gray-300">60%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section - Dark -->
+  <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        Work <span class="gradient-text">Experience</span>
+      </h2>
+
+      <!-- Remove max-w-3xl to expand to full container width -->
+      <div class="w-full">
+        <div class="space-y-8">
+
+          <!-- Experience Item 1 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  Student Engagement Center Front Desk Assistant
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Sept. 2024 - Present</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                University of Wisconsin-Green Bay, Green Bay, WI
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Provide exceptional customer service to students, faculty, and visitors at the Student Engagement
+                Center front desk
+                <br />
+                • Assist students with inquiries about campus events, student organizations, and university resources
+                <br />
+                • Manage facility reservations, equipment checkout, and maintain accurate records of student activities
+                <br />
+                • Support event coordination and setup for student programs and campus activities
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Customer
+                  Service</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Event
+                  Support</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Administrative
+                  Support</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Student
+                  Services</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 1 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  IT Intern
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Jan. 2025 - Aug. 2025</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                Alive & Kickin' Pizza Crust, Green Bay, WI
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Redesigned vendor-facing web portals using React,
+                Python/Flask, and Plotly to display real-time bulk ingredient
+                inventory levels, improving supply chain visibility by 25%
+                <br />
+                • Developed Python automation scripts and AI agents to
+                streamline IT Help Desk tasks, including email parsing,
+                automated ticket logging, and smart responses to employee
+                requests, reducing manual workload by 40%
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">React</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Python</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Flask</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Microsoft
+                  Azure AI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  IT Assistant
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Jan 2024 - May 2024</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                The College of Idaho, Caldwell, Idaho
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Collaborated with IT security experts to assess network
+                vulnerabilities and implement anti-spam measures for data
+                protection
+                <br />
+                • Managed two-factor authentication for college email accounts
+                and assisted students with password resets for applications
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">IT
+                  Security</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Authentication</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Network</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  Campus Safety Office Assistant
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Jan 2024 - May 2024</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                The College of Idaho, Caldwell, Idaho
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Worked closely with Campus Safety Officers to ensure
+                compliance with safety protocols and procedures, helped students and staffs on safety-related issues.
+                <br />
+                • Assisted in maintaining campus security systems, including surveillance cameras, and access control
+                systems, printing ID cards,
+                and managing lost and found items.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Campus
+                  Security</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Printing
+                  ID Cards</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Lock/Unlock
+                  doors</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  Food Service, Compass Group
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Oct. 2023 - Present</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                Chartwells Higher Ed, Green Bay, Wisconsin
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Worked at Front of the House, Grill Stations, Einstein's Begals, Burger Station, Sandwich Station, and
+                Salad Bar, providing excellent customer service and ensuring food quality.
+                <br />
+                • Assisted in maintaining cleanliness and organization of the food service areas, following health and
+                safety regulations.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Customer
+                  Service</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Health</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Food
+                  Safety</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Cleanliness</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  Event Coordinator, C of I Coding Club
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Dec 2023 - May 2024</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                The College of Idaho, Caldwell, Idaho
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Organized hackathon, Treasure Hunt and website developing
+                workshop to help students solve complex problems and improve
+                website building skills
+                <br />
+                • Hosted weekly coding nights to solve challenging programming
+                questions, helping students prepare for coding interviews and
+                develop problem-solving skills
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Hackathon</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Workshop</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Event
+                  Planning</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 4 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  IT Manager
+                </h3>
+                <span class="text-blue-600 dark:text-blue-400 font-medium">Mar 2023 - Aug 2023</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                Damauli Model Academy, Damauli, Tanahun
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                • Developed and deployed a responsive school website using
+                HTML, CSS, and JavaScript, improving access to academic
+                resources and school updates
+                <br />
+                • Oversaw IT operations, managed the school's ERP and IEMIS
+                systems, and collaborated with staff to support digital
+                literacy and streamline administrative workflows
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">HTML/CSS</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">JavaScript</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">ERP
+                  Systems</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Documentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section - Light -->
+  <section id="education" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        My <span class="gradient-text">Education</span>
+      </h2>
+
+      <!-- Remove max-w-3xl to expand to full container width -->
+      <div class="w-full">
+        <div class="space-y-8">
+          <!-- Education Item 1 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="https://www.uwgb.edu/" class="hover:text-blue-500 transition-colors">
+                  University of Wisconsin-Green Bay
+                </a>
+              </h3>
+              <p class="text-blue-600 dark:text-gray-300 mb-1">
+                Undergraduate, Double major in Computer Science (AI) and
+                Software Engineering (2024 - Present)
+              </p>
+              <p class="text-gray-500 dark:text-gray-400">
+                <li>GPA: 3.64/4.0</li>
+                <li>Deans List</li>
+                <li>Active member of Robotics Club.</li>
+                <li>
+                  Front Desk Assistant of Student Engagement Center (SEC).
+                </li>
+
+                <li>
+                  Digital Media Manager of Nepalese Students' Association.
+                </li>
+              </p>
+            </div>
+          </div>
+
+          <!-- Education Item 2 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="https://www.collegeofidaho.edu/" class="hover:text-blue-500 transition-colors">
+                  The College of Idaho
+                </a>
+              </h3>
+              <p class="text-blue-600 dark:text-gray-300 mb-1">
+                Undergraduate, Computer Science (2023 - 2024)
+              </p>
+              <p class="text-gray-500 dark:text-gray-400">
+                <li>GPA: 4.0/4.0</li>
+                <li>Deans List x 2</li>
+                <li>Campus Service Award Recepient.</li>
+                <li>
+                  Events Coordinator of the College of Idaho Coding Club.
+                </li>
+
+                <li>Graphic Designer at Nepalese Students Association.</li>
+              </p>
+            </div>
+          </div>
+
+          <!-- Education Item 3 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="https://www.sxc.edu.np/" class="hover:text-blue-500 transition-colors">
+                  St. Xavier's College, Maitighar
+                </a>
+              </h3>
+              <p class="text-blue-600 dark:text-gray-300 mb-1">
+                High School, Computer Science (2020-2022)
+              </p>
+              <p class="text-blue-500 dark:text-gray-400">
+                <li>GPA: 3.75/4.0</li>
+                <li>
+                  Secretary of Universal Solidarity Movement Club (2021-2022).
+                </li>
+                <li>
+                  Active Volunteer Teacher of Partnership in Education (PiE)
+                  program.
+                </li>
+              </p>
+            </div>
+          </div>
+          <!-- Education Item 4 -->
+          <div class="timeline-item relative pl-10">
+            <div
+              class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md">
+              <i class="fas fa-school"></i>
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="#" class="hover:text-blue-500 transition-colors">
+                  Shree Shanti Varsha Boarding School
+                </a>
+              </h3>
+              <p class="text-blue-600 dark:text-gray-300 mb-1">
+                Secondary Level Education (2014 - 2020)
+              </p>
+              <p class="text-gray-500 dark:text-gray-400">
+                <li>GPA: 4.0/4.0</li>
+                <li>School Captain | Class Representative | House Captain</li>
+                <li>DD Excellence Award | Laxmi Award</li>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section - Dark -->
+  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">
+        Featured <span class="gradient-text">Projects</span>
+      </h2>
+
+      <!-- Project Category Tabs -->
+      <div class="project-tabs flex flex-wrap justify-center mb-10">
+        <button class="project-tab-btn active" data-category="webapps">
+          <i class="fas fa-laptop-code mr-2"></i>Web Apps/Software
+        </button>
+        <button class="project-tab-btn" data-category="graphics">
+          <i class="fas fa-palette mr-2"></i>Graphic Design
+        </button>
+        <button class="project-tab-btn" data-category="art">
+          <i class="fas fa-paint-brush mr-2"></i>Sketches/Painting
+        </button>
+      </div>
+
+      <!-- Web Apps/Software Projects -->
+      <div class="project-category active" id="category-webapps">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
+          <!-- Keep your existing project cards here -->
+          <!-- Project 1 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/plc-monitoring-system.png" alt="PLC Monitoring System"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  PLC Monitoring System
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A Flask web app for real-time PLC monitoring, integrating Allen-Bradley ControlLogix/SLC500
+                systems via pylogix/pycomm3 to collect data with 99.9% accuracy. It has Python backend, enabling live
+                data
+                visualization that reduced equipment downtime 40% for plant operators.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Flask</span>
+                <span
+                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">Python</span>
+                <span
+                  class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full">SQLite</span>
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">Plotly</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">IIS</span>
+
+              </div>
+              <div class="flex space-x-3">
+                <a href="https://silolevels.akcrust.com/"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/ai-agent.png" alt="IT Help Desk AI Agent"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  IT Help Desk AI Agent
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                IT Help Desk agent using Microsoft Copilot Studio to automate ticket
+                handling, troubleshooting, and employee support tasks. It reduced manual workload by
+                implementing dynamic agent flows that handle password resets, device setup
+                instructions, and common FAQs with minimal human intervention.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Azure
+                  AI Foundry</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Copilot
+                  Studio</span>
+
+              </div>
+              <div class="flex space-x-3">
+                <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/language-translator.png" alt="Language Translator"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  Language Translator
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A language translator project that allows users to translate text to different languages, detect
+                the language of a given text, view translation history, and edit saved translations.
+                It integrates the Google Translate API for language translation and provides
+                a command-line interface for user interaction.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">Python</span>
+
+              </div>
+              <div class="flex space-x-3">
+                <a href="https://www.youtube.com/watch?v=Ezjd3myC9ZA"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="https://github.com/shrestha-sachin/Language-Translator"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Project 4 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/production-kpi-website.png" alt="KPI Website"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  KPI Website
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A KPI website that provides real-time production data visualization for manufacturing plants.
+                It loops through all the images available in the respective directory and displays them in website.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">HTML</span>
+
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Tailwind
+                  CSS</span>
+
+                <span
+                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">JavaScript</span>
+
+              </div>
+              <div class="flex space-x-3">
+                <a href="https://shrestha-sachin.github.io/carousel-website/index.html" target="_blank"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="https://github.com/shrestha-sachin/carousel-website"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/invoice-automation.png" alt="Invoice Automation"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  Invoice Automation
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                This n8n workflow automates invoice management by integrating Gmail, PDF analysis,
+                and Azure OpenAI GPT-4.1, with an optional human verification step
+                for accuracy and control. It's ideal for businesses or individuals
+                who regularly receive invoice emails and want to streamline their
+                accounts payable process with minimal manual effort.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">n8n</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">JavaScript</span>
+
+              </div>
+              <div class="flex space-x-3">
+                <a href="https://n8n.io/workflows/6062-automate-invoice-processing-from-gmail-with-azure-gpt-41-and-human-verification/"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="https://github.com/shrestha-sachin/invoice-automation-ai"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Project 6 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/project-6.png" alt="Painter Application - Java/JavaFX"
+                class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  Painter Application - Java/JavaFX
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                This is a simple Painter Application is built using Java and JavaFX, showcasing a user-friendly
+                interface for digital painting.
+                It allows users to create, edit, and save their artwork with various tools and features, including brush
+                customization,
+                layer management, and color palettes. Ideal for artists and hobbyists looking to explore digital art.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Java</span>
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">JavaScript</span>
+                <span
+                  class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Painter</span>
+              </div>
+              <div class="flex space-x-3">
+                <a href="https://n8n.io/workflows/6062-automate-invoice-processing-from-gmail-with-azure-gpt-41-and-human-verification/"
+                  class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="https://github.com/shrestha-sachin/invoice-automation-ai"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7 - Weather Alert System -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hidden-project">
+            <div class="h-48 overflow-hidden relative">
+              <img src="./Resources/Images/Projects/weather-alert-system.png" alt="Weather Alert System"
+                class="w-full h-full object-cover" onerror="this.src='./Resources/Images/placeholder-project.png'" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-4">
+                <h3 class="text-xl font-bold text-white">
+                  Weather Alert System
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                An intelligent weather monitoring system that provides real-time weather alerts and notifications.
+                Built with Python, this application fetches weather data from APIs, analyzes conditions, and sends
+                automated alerts for severe weather events like storms, heavy rain, or extreme temperatures.
+                Features include customizable alert thresholds, location-based monitoring, and multi-channel
+                notifications
+                via email and SMS.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Python</span>
+                <span
+                  class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">Weather
+                  API</span>
+                <span
+                  class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full">Automation</span>
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-full">Notifications</span>
+              </div>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-400 dark:text-gray-500 flex items-center cursor-not-allowed"
+                  onclick="return false;">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                </a>
+                <a href="https://github.com/shrestha-sachin/weather-alert-system" target="_blank"
+                  class="text-gray-600 dark:text-gray-400 hover:underline flex items-center">
+                  <i class="fab fa-github mr-1"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+          <button type="button"
+            class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
+            data-category-name="Web Apps/Software">
+            <i class="fab fa-github mr-2"></i> View All Web Projects
+          </button>
+        </div>
+      </div>
+
+      <!-- Graphic Design Projects -->
+      <div class="project-category hidden" id="category-graphics">
+        <!-- Gallery Carousel -->
+        <div class="gallery-carousel graphics-carousel">
+          <div class="carousel-container">
+            <div class="carousel-track" data-current-slide="0">
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Graphics/project-1.png" alt="Logo Design" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Graphics/project-2.png" alt="Poster Design" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Graphics/poster-3.png" alt="Admission Campaign Poster"
+                  loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Graphics/project-4.png" alt="Festival Poster" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Graphics/certificate-1.png" alt="Certificate Design"
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="carousel-info">
+              <h3 class="carousel-title">Graphic Design Portfolio</h3>
+              <p class="carousel-description">Explore my collection of logos, posters, certificates and other design
+                work</p>
+            </div>
+            <div class="carousel-dots"></div>
+            <button class="carousel-arrow left" aria-label="Previous slide">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow right" aria-label="Next slide">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid projects-grid">
+          <!-- Visible items -->
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Graphics/project-1.png" alt="Logo Design" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Logo Design</h4>
+              <p class="gallery-subtitle">Brand Identity</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Graphics/project-2.png" alt="Poster Design" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Poster Design</h4>
+              <p class="gallery-subtitle">Event Promotion</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Graphics/poster-3.png" alt="Campaign Poster" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Admission Campaign Poster</h4>
+              <p class="gallery-subtitle">Marketing Campaign</p>
+            </div>
+          </div>
+
+          <!-- Hidden items that will show on "View All" -->
+          <div class="gallery-item hidden-project">
+            <img src="./Resources/Images/Projects/Graphics/project-4.png" alt="Festival Poster" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Festival Poster</h4>
+              <p class="gallery-subtitle">Festival Celebration</p>
+            </div>
+          </div>
+
+          <div class="gallery-item hidden-project">
+            <img src="./Resources/Images/Projects/Graphics/certificate-1.png" alt="Certificate Design" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Certificate Design</h4>
+              <p class="gallery-subtitle">Award Certificate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button type="button"
+            class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
+            data-category-name="Graphic Designs">
+            <i class="fas fa-images mr-2"></i> View All Graphic Designs
+          </button>
+        </div>
+      </div>
+
+      <!-- Sketches/Painting Projects -->
+      <div class="project-category hidden" id="category-art">
+        <!-- Gallery Carousel -->
+        <div class="gallery-carousel art-carousel">
+          <div class="carousel-container">
+            <div class="carousel-track" data-current-slide="0">
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Arts/art-1.jpg" alt="Portrait Sketch" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Arts/art-2.jpg" alt="Watercolor Landscape" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Arts/art-3.jpg" alt="Digital Art" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Arts/art-4.png" alt="Landscape Painting" loading="lazy">
+              </div>
+              <div class="carousel-slide">
+                <img src="./Resources/Images/Projects/Arts/art-5.png" alt="Architectural Sketch" loading="lazy">
+              </div>
+            </div>
+            <div class="carousel-info">
+              <h3 class="carousel-title">Art Portfolio</h3>
+              <p class="carousel-description">A collection of my sketches, paintings, and digital artwork</p>
+            </div>
+            <div class="carousel-dots"></div>
+            <button class="carousel-arrow left" aria-label="Previous slide">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow right" aria-label="Next slide">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid projects-grid">
+          <!-- Visible items -->
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Arts/art-1.jpg" alt="Portrait Sketch" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Portrait Sketch</h4>
+              <p class="gallery-subtitle">Pencil Art</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Arts/art-2.jpg" alt="Watercolor Landscape" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Watercolor Landscape</h4>
+              <p class="gallery-subtitle">Traditional Art</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="./Resources/Images/Projects/Arts/art-3.jpg" alt="Digital Art" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Digital Art</h4>
+              <p class="gallery-subtitle">Digital Illustration</p>
+            </div>
+          </div>
+
+          <!-- Hidden items that will show on "View All" -->
+          <div class="gallery-item hidden-project">
+            <img src="./Resources/Images/Projects/Arts/art-4.png" alt="Landscape Painting" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Landscape Painting</h4>
+              <p class="gallery-subtitle">Oil on Canvas</p>
+            </div>
+          </div>
+
+          <div class="gallery-item hidden-project">
+            <img src="./Resources/Images/Projects/Arts/art-5.png" alt="Architectural Sketch" loading="lazy">
+            <div class="gallery-overlay">
+              <h4 class="gallery-title">Architectural Sketch</h4>
+              <p class="gallery-subtitle">Technical Drawing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button type="button"
+            class="view-all-projects-btn px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors inline-flex items-center glow"
+            data-category-name="Arts">
+            <i class="fas fa-palette mr-2"></i> View All Arts
+          </button>
+        </div>
+      </div>
+  </section>
+
+  <!-- Videos Section - Dark -->
+  <section id="videos" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-3xl font-bold mb-4">
+          My <span class="gradient-text">Videos</span>
+        </h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">
+          Sometimes, I make some random videos about programming, tech, my lifestyle, and more.
+          Check out my latest videos below!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Video 1 -->
+        <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/Ezjd3myC9ZA" title="Language Translator Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen class="w-full h-full"></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Language Translator Demo</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              A walkthrough of my language translation application showing key features and functionality.
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                <i class="far fa-calendar-alt mr-1"></i> Jun 15, 2023
+              </span>
+              <a href="https://www.youtube.com/watch?v=Ezjd3myC9ZA" target="_blank"
+                class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 2 - Add your actual videos here -->
+        <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/59qX-nbr_sg?si=lR5puzxxloOpP9__" title="Programming Tutorial"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen class="w-full h-full"></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Climate Change</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              This project delvs into the critical issue of climate change and its effects on
+              the Nepalese landscape and its people.
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                <i class="far fa-calendar-alt mr-1"></i> Apr 22, 2023
+              </span>
+              <a href="https://www.youtube.com/watch?v=59qX-nbr_sg" target="_blank"
+                class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 3 - Add your actual videos here -->
+        <div class="video-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/Ho4NSggbu6E?si=sYD8C1WGVKAzEm9k" title="Project Overview"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen class="w-full h-full"></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 dark:text-white">I-FIT Challegne</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              An idea of First-ever Child Bank in Nepal. This project won the I-FIT Challenge
+              organized by the Iowa State University.
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2022
+              </span>
+              <a href="https://www.youtube.com/watch?v=Ho4NSggbu6E" target="_blank"
+                class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                <i class="fab fa-youtube mr-1"></i> Watch on YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Videos Button -->
+      <div class="text-center mt-12">
+        <a href="https://www.youtube.com/@sachin-stha" target="_blank"
+          class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg font-medium transition-colors inline-flex items-center glow">
+          <i class="fab fa-youtube mr-2"></i> View All Videos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        Chat with <span class="gradient-text">SacAI</span>
+      </h2>
+
+      <!-- Main Centered Chat -->
+      <div class="chat-container main-chat">
+        <div class="chat-header">
+          <h3>
+            <img src="./Resources/Images/favicon.png" alt="SacAI" class="w-6 h-6 mr-2">
+            SacAI
+          </h3>
+          <div class="chat-tools">
+            <div class="tool-button" title="Clear conversation" id="main-clear-btn">
+              <i class="fas fa-broom"></i>
+            </div>
+            <div class="tool-button" title="Voice input" id="main-voice-btn">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <div class="tool-button" title="Upload file" id="main-upload-btn">
+              <i class="fas fa-paperclip"></i>
+            </div>
+            <div class="tool-button" title="Settings" id="main-settings-btn">
+              <i class="fas fa-cog"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-body" id="main-chat-body">
+          <!-- AI Welcome Message -->
+          <div class="message message-ai">
+            <div class="message-header">
+              <div class="message-avatar">
+                <img src="./Resources/Images/favicon.png" alt="SacAI" class="w-6 h-6">
+              </div>
+              <div class="message-meta">SacAI • Just now</div>
+            </div>
+            <div class="message-content">
+              Hello! I'm SacAI, your personal assistant. How can I help you today?
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-container">
+          <div class="chat-input-wrapper">
+            <textarea class="chat-input" id="main-chat-input" placeholder="Type your message..." rows="1"></textarea>
+            <button class="chat-send-btn" id="main-chat-send">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Chat Button (Bottom Left) -->
+    <div class="chat-widget-trigger" id="chat-widget-trigger">
+      <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Floating Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+      <div class="chat-container float-chat">
+        <div class="chat-header">
+          <h3>
+            <img src="./Resources/Images/favicon.png" alt="SacAI" class="w-6 h-6 mr-2">
+            Chat with SacAI
+          </h3>
+          <div class="chat-tools">
+            <div class="tool-button" title="Clear conversation" id="float-clear-btn">
+              <i class="fas fa-broom"></i>
+            </div>
+            <div class="tool-button" title="Voice input" id="float-voice-btn">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <div class="tool-button" title="Close chat">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-body" id="float-chat-body">
+          <!-- AI Welcome Message -->
+          <div class="message message-ai">
+            <div class="message-header">
+              <div class="message-avatar">
+                <img src="./Resources/Images/favicon.png" alt="SacAI" class="w-6 h-6">
+              </div>
+              <div class="message-meta">SacAI • Just now</div>
+            </div>
+            <div class="message-content">
+              Hello! I'm SacAI, your personal assistant. How can I help you today?
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-container">
+          <div class="chat-input-wrapper">
+            <textarea class="chat-input" id="float-chat-input" placeholder="Type your message..." rows="1"></textarea>
+            <button class="chat-send-btn" id="float-chat-send">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input for file uploads (hidden) -->
+    <input type="file" id="file-upload" class="hidden" />
+  </section>
+
+  <!-- Contact Section - Dark -->
+  <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Get In
+          <span class="gradient-text">Touch</span>
+        </h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">
+          Have a project in mind or want to discuss potential opportunities?
+          Feel free to reach out!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="fade-in">
+          <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+            <h3 class="text-xl font-semibold mb-6 dark:text-gray-100">
+              Contact Information
+            </h3>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                  <i class="fas fa-map-marker-alt text-blue-500 dark:text-blue-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800 dark:text-gray-100">
+                    Location
+                  </h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Green Bay, Wisconsin, United States
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                  <i class="fas fa-envelope text-blue-500"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800 dark:text-gray-100">
+                    Email
+                  </h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    <a href="mailto:sachinstha600@gmail.com" class="word-wrap inline-block">
+                      sachinstha600@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                  <i class="fas fa-phone text-blue-500"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800 dark:text-gray-100">
+                    Phone
+                  </h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    +977 9862685223
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                  <i class="fas fa-clock text-blue-500"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800 dark:text-gray-100">
+                    Working Hours
+                  </h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Sun-Fri: 8AM - 4PM
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-medium text-gray-800 mb-4">Follow Me</h4>
+              <div class="flex justify-start md:justify-start space-x-4">
+                <a href="https://github.com/shrestha-sachin" target="_blank"
+                  class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+                  <i class="fab fa-github text-gray-700 dark:text-gray-300"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sachin-stha/" target="_blank"
+                  class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+                  <i class="fab fa-linkedin-in text-gray-700 dark:text-gray-300"></i>
+                </a>
+                <a href="https://www.facebook.com/sachin.stha.26/" target="_blank"
+                  class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+                  <i class="fab fa-facebook text-gray-700 dark:text-gray-300"></i>
+                </a>
+                <a href="https://www.instagram.com/sachin_shrestha__/" target="_blank"
+                  class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+                  <i class="fab fa-instagram text-gray-700 dark:text-gray-300"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <!-- Contact form with EmailJS -->
+          <form id="contact-form" action="https://formsubmit.co/sachinstha600@gmail.com" method="POST"
+            class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+            <h3 class="text-xl font-semibold mb-6 dark:text-gray-100">
+              Send Me a Message
+            </h3>
+
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_honey" style="display:none">
+
+            <!-- Disable captcha -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Success page redirect -->
+            <input type="hidden" name="_next" value="https://www.sachinshrestha.com/">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                <input type="text" id="name" name="name"
+                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+                  required />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                <input type="email" id="email" name="email"
+                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+                  required />
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="subject"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+              <input type="text" id="subject" name="subject"
+                class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+                required />
+            </div>
+
+            <div class="mb-4">
+              <label for="message"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+              <textarea id="message" name="message" rows="5"
+                class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:border-blue-500"
+                required></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn"
+              class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors w-full glow">
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notification container -->
+  <div id="notification"
+    class="fixed bottom-5 right-5 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-y-full opacity-0">
+    <div class="flex items-center">
+      <i id="notification-icon" class="fas mr-3 text-lg"></i>
+      <p id="notification-message" class="font-medium"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12 dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+        <div class="fade-in">
+          <h3 class="text-2xl font-bold mb-4">
+            Sachin<span class="text-2xl font-bold gradient-text">Shrestha</span>
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Full Stack Developer/Software Engineer creating digital
+            experiences that matter.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/shrestha-sachin" target="_blank"
+              class="social-icon text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sachin-stha/" target="_blank"
+              class="social-icon text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/sachin.stha.26/" target="_blank"
+              class="social-icon text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/sachin_shrestha__/" target="_blank"
+              class="social-icon text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#home" class="text-gray-400 hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="text-gray-400 hover:text-white transition">About</a>
+            </li>
+            <li>
+              <a href="#skills" class="text-gray-400 hover:text-white transition">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+            </li>
+            <li>
+              <a href="#experience" class="text-gray-400 hover:text-white transition">Experience</a>
+            </li>
+            <li>
+              <a href="#chatbot" class="text-gray-400 hover:text-white transition">SacAI</a>
+            </li>
+            <li>
+              <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fade-in">
+          <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+          <p class="text-gray-400 mb-4">
+            Subscribe to my newsletter for the latest updates and projects.
+          </p>
+          <!-- Newsletter form with FormSubmit -->
+          <form id="newsletter-form" action="https://formsubmit.co/sachinstha600@gmail.com" method="POST" class="flex">
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_honey" style="display:none">
+
+            <!-- Disable captcha -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Success page redirect -->
+            <input type="hidden" name="_next" value="https://www.sachinshrestha.com/">
+            <input type="hidden" name="_subject" value="New Newsletter Subscription!">
+            <input type="email" id="subscriber-email" name="email" placeholder="Your email"
+              class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full" required />
+            <button type="submit"
+              class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-r-lg hover:from-blue-700 hover:to-purple-700 transition-colors">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 Sachin Shrestha. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top"
+    class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors hidden">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <!-- Replace the existing EmailJS script block with this: -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+  <script>
+    // Defer initialization until DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init("jqMJUEt3g2hy75Y1m");
+        console.log("EmailJS initialized successfully");
+      } else {
+        console.error("EmailJS SDK failed to load");
+      }
+    });
+  </script>
+  <script src="./Scripts/typewriter.js" defer></script>
+  <script src="./Scripts/animation.js" defer></script>
+  <script src="./Scripts/scripts.js" defer></script>
+  <script src="./chatbot/Scripts/chatbot.js" defer></script>
+  <script src="./Scripts/image-lightbox.js" defer></script>
+  <script src="./Scripts/gallery-carousel.js" defer></script>
+
+  <!-- Image Lightbox Modal -->
+  <div id="image-lightbox"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm hidden">
+    <div class="relative max-w-5xl max-h-[90vh] mx-4">
+      <!-- Close Button -->
+      <button id="lightbox-close"
+        class="absolute -top-12 right-0 text-white hover:text-gray-300 focus:outline-none transition-colors">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+
+      <!-- Controls Bar -->
+      <div
+        class="absolute bottom-0 left-0 right-0 p-4 flex justify-between items-center bg-black bg-opacity-60 rounded-b-lg">
+        <!-- Left side: Image info -->
+        <div class="text-white">
+          <h3 id="lightbox-title" class="font-medium"></h3>
+        </div>
+
+        <!-- Right side: Controls -->
+        <div class="flex items-center space-x-4">
+          <button id="zoom-out-btn" class="text-white hover:text-blue-400 focus:outline-none transition-colors">
+            <i class="fas fa-search-minus text-xl"></i>
+          </button>
+          <span id="zoom-level" class="text-white">100%</span>
+          <button id="zoom-in-btn" class="text-white hover:text-blue-400 focus:outline-none transition-colors">
+            <i class="fas fa-search-plus text-xl"></i>
+          </button>
+          <button id="download-btn" class="text-white hover:text-green-400 focus:outline-none transition-colors">
+            <i class="fas fa-download text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Image Container with Draggable Support -->
+      <div class="overflow-hidden relative" id="image-container">
+        <img id="lightbox-image" src="" alt="Enlarged view"
+          class="max-h-[80vh] transform transition-transform duration-200 cursor-move">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
