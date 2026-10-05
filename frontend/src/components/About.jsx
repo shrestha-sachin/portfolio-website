@@ -90,7 +90,7 @@ export default function About() {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a
-                href="./Resources/Resume/Resume_Sachin_Full.pdf"
+                href="./Resources/Resume/Resume_Sachin_SWE.pdf"
                 download="Sachin_Shrestha_Resume.pdf"
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-colors glow shadow-lg flex items-center"
               >
